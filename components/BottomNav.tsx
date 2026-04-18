@@ -21,8 +21,10 @@ const tabs: Tab[] = [
 export default function BottomNav({ active }: { active?: string }) {
   const pathname = usePathname();
   return (
-    <div className="absolute bottom-0 left-0 right-0 px-4 pb-4 pt-2 pointer-events-none">
-      <nav className="pointer-events-auto mx-auto bg-white rounded-[28px] shadow-card border border-ink-line flex items-center justify-between px-4 py-3">
+    <div className="shrink-0 relative z-30 bg-white">
+      {/* soft top edge */}
+      <div className="absolute -top-4 left-0 right-0 h-4 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+      <nav className="relative mx-3 mb-3 bg-ink-navy rounded-[26px] flex items-center justify-between px-2 py-2 shadow-[0_16px_32px_-18px_rgba(15,26,61,0.45)]">
         {tabs.map(({ key, href, label, Icon }) => {
           const isActive =
             active === key || (!active && pathname?.startsWith(href));
@@ -30,24 +32,20 @@ export default function BottomNav({ active }: { active?: string }) {
             <Link
               key={key}
               href={href}
-              className="relative flex-1 flex flex-col items-center justify-center gap-0.5"
+              className="relative flex-1 flex items-center justify-center"
             >
-              <div
-                className={`w-11 h-11 rounded-full flex items-center justify-center transition-all ${
-                  isActive
-                    ? "bg-brand-blue text-white shadow-float"
-                    : "text-ink-slate"
-                }`}
-              >
-                <Icon size={22} filled={isActive} />
-              </div>
-              <span
-                className={`text-[10px] font-semibold ${
-                  isActive ? "text-brand-blue" : "text-ink-muted"
-                }`}
-              >
-                {label}
-              </span>
+              {isActive ? (
+                <div className="flex items-center gap-2 bg-white rounded-[20px] pl-3 pr-4 py-2 shadow-[0_6px_16px_-6px_rgba(0,0,0,0.4)]">
+                  <Icon size={20} filled className="text-brand-blue" />
+                  <span className="text-[12px] font-extrabold text-ink-navy">
+                    {label}
+                  </span>
+                </div>
+              ) : (
+                <div className="py-2.5 text-white/70">
+                  <Icon size={22} />
+                </div>
+              )}
             </Link>
           );
         })}

@@ -3,8 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import PhoneFrame from "@/components/PhoneFrame";
-import StatusBar from "@/components/StatusBar";
+import AppShell from "@/components/AppShell";
 import AvatarCircle from "@/components/AvatarCircle";
 import {
   ArrowLeft,
@@ -15,6 +14,8 @@ import {
   ChevronRight,
   Sparkle,
   Trophy,
+  Rocket,
+  Star,
 } from "@/components/Icons";
 import { currentUser, friends } from "@/lib/data";
 
@@ -63,162 +64,194 @@ export default function MenuPage() {
   ];
 
   return (
-    <PhoneFrame>
-      <div className="relative h-full w-full flex flex-col bg-gradient-to-b from-brand-blueSoft to-white">
-        <StatusBar />
-
-        <header className="px-6 pt-2 flex items-center justify-between">
+    <AppShell
+      bottomNav={false}
+      background="#f5f3ff"
+      header={
+        <header className="px-6 pt-2 pb-2 flex items-center justify-between">
           <button
             onClick={() => router.push("/dashboard")}
-            className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-ink-navy shadow-soft"
+            className="w-11 h-11 rounded-2xl bg-white flex items-center justify-center text-ink-navy shadow-soft"
           >
             <ArrowLeft />
           </button>
           <h1 className="text-h1 text-ink-navy">Menu</h1>
-          <div className="w-10" />
+          <div className="w-11" />
         </header>
-
-        <div className="flex-1 overflow-auto hide-scroll px-6 pb-8 pt-4">
-          {/* Profile card */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="p-5 rounded-card bg-white border border-ink-line shadow-card flex items-center gap-4"
-          >
-            <AvatarCircle name={currentUser.firstName} size="xl" ring ringColor="#e8f0ff" />
+      }
+    >
+      <div className="px-6 pt-2 pb-8">
+        {/* Profile card */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="relative overflow-hidden p-5 rounded-[26px]"
+          style={{
+            background: "linear-gradient(145deg, #5a95ee 0%, #3d7de8 60%, #2c5fc7 100%)",
+            boxShadow:
+              "0 30px 60px -28px rgba(61,125,232,0.65), inset 0 1px 0 rgba(255,255,255,0.35)",
+          }}
+        >
+          <span className="absolute -top-14 -right-12 w-52 h-52 rounded-full bg-white/15 blur-xl" />
+          <span className="absolute inset-0 bg-grain opacity-50" />
+          <div className="relative flex items-center gap-4 text-white">
+            <AvatarCircle
+              name={currentUser.firstName}
+              size="2xl"
+              ring
+              ringColor="rgba(255,255,255,0.7)"
+              ringWidth={4}
+            />
             <div className="flex-1 min-w-0">
-              <p className="text-h1 text-ink-navy leading-tight">
-                {currentUser.fullName}
-              </p>
-              <p className="text-body text-brand-blue font-bold">
+              <p className="text-h1 leading-tight">{currentUser.fullName}</p>
+              <p className="text-[13px] text-white/85 font-extrabold">
                 @{currentUser.handle}
               </p>
-              <p className="text-small text-ink-slate mt-0.5">
+              <p className="text-[11px] text-white/70 mt-0.5 font-semibold">
                 {currentUser.room}
               </p>
             </div>
-          </motion.div>
+          </div>
+        </motion.div>
 
-          {/* Mini stats */}
-          <div className="mt-4 grid grid-cols-3 gap-2">
-            {[
-              { k: "18", l: "Sessions" },
-              { k: "142", l: "Cards" },
-              { k: "#3", l: "Rank", icon: <Trophy size={14} /> },
-            ].map((s) => (
+        {/* Mini stats */}
+        <div className="mt-4 grid grid-cols-3 gap-2">
+          {[
+            { k: "18", l: "Sessions", i: <Rocket size={14} /> },
+            { k: "142", l: "Cards", i: <Sparkle size={14} /> },
+            { k: "#3", l: "Rank", i: <Trophy size={14} /> },
+          ].map((s) => (
+            <div
+              key={s.l}
+              className="p-3 rounded-[18px] bg-white border border-ink-line text-center shadow-soft"
+            >
+              <p className="text-h1 text-ink-navy leading-none tracking-tight">
+                {s.k}
+              </p>
+              <p className="text-[11px] text-ink-slate font-extrabold mt-1 flex items-center justify-center gap-1">
+                {s.i}
+                {s.l}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Menu list */}
+        <div className="mt-6 flex flex-col gap-2">
+          {items.map((it) => (
+            <MenuRow
+              key={it.key}
+              icon={it.icon}
+              tint={it.tint}
+              color={it.color}
+              label={it.label}
+              desc={it.desc}
+              href={it.href}
+            />
+          ))}
+        </div>
+
+        {/* Rooms preview */}
+        <div className="mt-6 p-4 rounded-[22px] bg-white border border-ink-line shadow-soft">
+          <div className="flex items-center justify-between">
+            <h3 className="text-h2 text-ink-navy">Your rooms</h3>
+            <span className="text-small font-extrabold text-brand-blue">
+              Manage
+            </span>
+          </div>
+          <div className="mt-3 flex flex-col gap-2">
+            {rooms.map((r) => (
               <div
-                key={s.l}
-                className="p-3 rounded-[16px] bg-white border border-ink-line text-center"
+                key={r.name}
+                className="flex items-center gap-3 p-2.5 rounded-[14px] bg-ink-line/50"
               >
-                <p className="text-h1 text-ink-navy leading-none">{s.k}</p>
-                <p className="text-[11px] text-ink-slate font-semibold mt-1 flex items-center justify-center gap-1">
-                  {s.icon}
-                  {s.l}
-                </p>
+                <div
+                  className="w-10 h-10 rounded-lg text-white flex items-center justify-center"
+                  style={{
+                    background: `linear-gradient(145deg, ${r.accent}, ${r.accent}cc)`,
+                    boxShadow: `0 10px 18px -10px ${r.accent}cc`,
+                  }}
+                >
+                  <UsersIcon size={16} />
+                </div>
+                <div className="flex-1">
+                  <p className="text-small font-extrabold text-ink-navy">
+                    {r.name}
+                  </p>
+                  <p className="text-[11px] text-ink-slate font-semibold">
+                    {r.members} members
+                  </p>
+                </div>
+                <ChevronRight />
               </div>
             ))}
           </div>
+        </div>
 
-          {/* Menu list */}
-          <div className="mt-6 flex flex-col gap-2">
-            {items.map((it) => (
-              <MenuRow
-                key={it.key}
-                icon={it.icon}
-                tint={it.tint}
-                color={it.color}
-                label={it.label}
-                desc={it.desc}
-                href={it.href}
-              />
-            ))}
-          </div>
-
-          {/* Rooms preview */}
-          <div className="mt-6 p-4 rounded-[20px] bg-white border border-ink-line">
-            <div className="flex items-center justify-between">
-              <h3 className="text-h2 text-ink-navy">Your rooms</h3>
-              <span className="text-small font-bold text-brand-blue">Manage</span>
+        {/* Start session CTA */}
+        <Link
+          href="/collab"
+          className="relative overflow-hidden mt-4 block p-4 rounded-[22px] text-white"
+          style={{
+            background: "linear-gradient(145deg, #a596ff 0%, #8b7cf6 60%, #6b57d9 100%)",
+            boxShadow:
+              "0 22px 40px -22px rgba(107,87,217,0.7), inset 0 1px 0 rgba(255,255,255,0.35)",
+          }}
+        >
+          <span className="absolute -top-10 -right-10 w-36 h-36 rounded-full bg-white/15 blur-xl" />
+          <div className="relative flex items-center gap-3">
+            <div className="w-11 h-11 rounded-xl bg-white/25 flex items-center justify-center">
+              <Sparkle />
             </div>
-            <div className="mt-3 flex flex-col gap-2">
-              {rooms.map((r) => (
-                <div
-                  key={r.name}
-                  className="flex items-center gap-3 p-2.5 rounded-[14px] bg-ink-line/50"
-                >
-                  <div
-                    className="w-9 h-9 rounded-lg text-white flex items-center justify-center"
-                    style={{ background: r.accent }}
-                  >
-                    <UsersIcon size={16} />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-small font-bold text-ink-navy">
-                      {r.name}
-                    </p>
-                    <p className="text-[11px] text-ink-slate">
-                      {r.members} members
-                    </p>
-                  </div>
-                  <ChevronRight />
-                </div>
+            <div className="flex-1">
+              <p className="text-small font-extrabold">Start a session</p>
+              <p className="text-[11px] text-white/85 font-semibold">
+                Pick friends and study together
+              </p>
+            </div>
+            <div className="flex -space-x-2">
+              {friends.slice(0, 3).map((f) => (
+                <AvatarCircle
+                  key={f.handle}
+                  name={f.name}
+                  size="sm"
+                  ring
+                  ringColor="#6b57d9"
+                />
               ))}
             </div>
           </div>
+        </Link>
 
-          {/* Session with friends CTA */}
-          <Link
-            href="/collab"
-            className="mt-4 block p-4 rounded-[20px] bg-accent-purple text-white shadow-float"
-          >
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-white/25 flex items-center justify-center">
-                <Sparkle />
-              </div>
-              <div className="flex-1">
-                <p className="text-small font-bold">Start a session</p>
-                <p className="text-[11px] text-white/80">
-                  Pick friends and study together
-                </p>
-              </div>
-              <div className="flex -space-x-2">
-                {friends.slice(0, 3).map((f) => (
-                  <AvatarCircle key={f.handle} name={f.name} size="sm" ring ringColor="#8b7cf6" />
-                ))}
-              </div>
-            </div>
-          </Link>
+        <div className="my-5 h-px bg-ink-line" />
 
-          <div className="my-5 h-px bg-ink-line" />
+        <MenuRow
+          label="Invite a Friend"
+          desc="Share your room code"
+          tint="#fff1db"
+          color="#ffb066"
+          icon={<Sparkle />}
+        />
 
-          <MenuRow
-            label="Invite a Friend"
-            desc="Share your room code"
-            tint="#fff1db"
-            color="#ffb066"
-            icon={<Sparkle />}
-          />
+        <div className="my-3" />
 
-          <div className="my-5 h-px bg-ink-line" />
+        <MenuRow
+          label="Rate Us"
+          desc="Tell us what you think"
+          tint="#e8f0ff"
+          color="#3d7de8"
+          icon={<Star />}
+        />
 
-          <MenuRow
-            label="Rate Us"
-            desc="Tell us what you think"
-            tint="#e8f0ff"
-            color="#3d7de8"
-            icon={<Heart />}
-          />
+        <button className="w-full mt-5 h-12 rounded-[18px] bg-accent-coral/15 text-accent-coral text-small font-extrabold">
+          Sign Out
+        </button>
 
-          <button className="w-full mt-3 h-12 rounded-[18px] bg-accent-coral/15 text-accent-coral text-small font-bold">
-            Sign Out
-          </button>
-
-          <p className="text-center text-[11px] text-ink-muted font-semibold mt-6">
-            Memorai · v0.1 · Powered by Claude
-          </p>
-        </div>
+        <p className="text-center text-[11px] text-ink-muted font-extrabold mt-6 tracking-wider">
+          MEMORAI · v0.1 · POWERED BY CLAUDE
+        </p>
       </div>
-    </PhoneFrame>
+    </AppShell>
   );
 }
 
@@ -240,14 +273,14 @@ function MenuRow({
   const Body = (
     <div className="flex items-center gap-3 p-3.5 bg-white rounded-[18px] border border-ink-line">
       <div
-        className="w-10 h-10 rounded-xl flex items-center justify-center"
+        className="w-11 h-11 rounded-xl flex items-center justify-center"
         style={{ background: tint, color }}
       >
         {icon}
       </div>
       <div className="flex-1">
         <p className="text-small font-extrabold text-ink-navy">{label}</p>
-        <p className="text-[11px] text-ink-slate">{desc}</p>
+        <p className="text-[11px] text-ink-slate font-semibold">{desc}</p>
       </div>
       <ChevronRight />
     </div>

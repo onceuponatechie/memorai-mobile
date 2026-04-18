@@ -3,34 +3,51 @@
 import Link from "next/link";
 import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import PhoneFrame from "@/components/PhoneFrame";
-import StatusBar from "@/components/StatusBar";
-import BottomNav from "@/components/BottomNav";
+import AppShell from "@/components/AppShell";
 import RaiAvatar from "@/components/RaiAvatar";
 import { ArrowLeft, Mic, Send, Paperclip, Sparkle } from "@/components/Icons";
+
+type MsgPart =
+  | { type: "text"; text: string }
+  | { type: "list"; title: string; items: string[]; tail?: string };
 
 type Msg = {
   id: string;
   from: "rai" | "me";
-  text: string;
-  chips?: string[];
+  parts: MsgPart[];
 };
 
 const initial: Msg[] = [
   {
     id: "1",
     from: "rai",
-    text: "Hey Essy! 👋 Ready to dig into MAS 312? I can summarize Chapter 4, quiz you on media planning, or just chat.",
+    parts: [
+      {
+        type: "text",
+        text: "Hey Essy 👋 Ready to dig into MAS 312? I can summarize Chapter 4, quiz you on media planning, or just chat.",
+      },
+    ],
   },
   {
     id: "2",
     from: "me",
-    text: "Can you summarize Chapter 4 for me?",
+    parts: [{ type: "text", text: "Can you summarize Chapter 4 for me?" }],
   },
   {
     id: "3",
     from: "rai",
-    text: "Here are the 3 big ideas from Chapter 4:\n\n1. Reach vs. Frequency — pick your goal first.\n2. Media mix creates message reinforcement.\n3. CPM and CPP help compare channel cost.\n\nWant me to break any of these down further?",
+    parts: [
+      {
+        type: "list",
+        title: "Here are the 3 big ideas from Chapter 4:",
+        items: [
+          "Reach vs. Frequency — pick your goal first.",
+          "Media mix creates message reinforcement.",
+          "CPM and CPP help compare channel cost.",
+        ],
+        tail: "Want me to break any of these down further?",
+      },
+    ],
   },
 ];
 
@@ -52,7 +69,11 @@ export default function ChatPage() {
 
   const send = (text: string) => {
     if (!text.trim()) return;
-    const next: Msg = { id: String(Date.now()), from: "me", text };
+    const next: Msg = {
+      id: String(Date.now()),
+      from: "me",
+      parts: [{ type: "text", text }],
+    };
     setMessages((m) => [...m, next]);
     setInput("");
     setTyping(true);
@@ -63,54 +84,48 @@ export default function ChatPage() {
         {
           id: String(Date.now() + 1),
           from: "rai",
-          text: pickReply(text),
+          parts: [{ type: "text", text: pickReply(text) }],
         },
       ]);
     }, 1100);
   };
 
   return (
-    <PhoneFrame>
-      <div className="relative h-full w-full flex flex-col">
-        <StatusBar />
-
+    <AppShell
+      bottomNav="chat"
+      header={
         <header className="px-5 pt-2 pb-3 flex items-center gap-3 border-b border-ink-line">
           <Link
             href="/dashboard"
-            className="w-10 h-10 rounded-full bg-ink-line flex items-center justify-center text-ink-navy"
+            className="w-10 h-10 rounded-2xl bg-ink-line flex items-center justify-center text-ink-navy"
           >
             <ArrowLeft />
           </Link>
-          <div className="flex items-center gap-2 flex-1">
+          <div className="flex items-center gap-2.5 flex-1">
             <div className="relative">
-              <RaiAvatar mood="happy" size="medium" />
-              <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-accent-mint ring-2 ring-white" />
+              <div className="w-11 h-11 rounded-2xl bg-brand-blueSoft flex items-center justify-center">
+                <RaiAvatar mood="happy" size="medium" />
+              </div>
+              <span className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-accent-mint ring-2 ring-white" />
             </div>
             <div>
-              <p className="text-small font-extrabold text-ink-navy">Rai</p>
-              <p className="text-[11px] text-ink-slate">AI study buddy · online</p>
+              <p className="text-small font-extrabold text-ink-navy leading-tight">Rai</p>
+              <p className="text-[11px] text-accent-mint font-bold">● online</p>
             </div>
           </div>
-          <button className="text-[11px] font-bold text-brand-blue px-3 py-1.5 rounded-pill bg-brand-blueSoft">
+          <span className="text-[11px] font-extrabold text-brand-blue px-3 py-1.5 rounded-pill bg-brand-blueSoft">
             MAS 312
-          </button>
+          </span>
         </header>
-
-        <div className="flex-1 overflow-auto hide-scroll px-4 py-4">
-          {messages.map((m) => (
-            <Bubble key={m.id} msg={m} />
-          ))}
-          {typing && <TypingBubble />}
-          <div ref={endRef} />
-        </div>
-
-        <div className="px-4 pb-3">
+      }
+      footer={
+        <div className="shrink-0 px-4 pt-2 pb-2 bg-white border-t border-ink-line">
           <div className="flex gap-2 overflow-x-auto no-scrollbar pb-2">
             {suggestions.map((s) => (
               <button
                 key={s}
                 onClick={() => send(s)}
-                className="shrink-0 flex items-center gap-1.5 h-9 px-3.5 rounded-pill bg-brand-blueSoft text-brand-blue text-[12px] font-bold"
+                className="shrink-0 flex items-center gap-1.5 h-9 px-3.5 rounded-pill bg-brand-blueSoft text-brand-blue text-[12px] font-extrabold border border-brand-blue/10"
               >
                 <Sparkle size={12} />
                 {s}
@@ -132,7 +147,7 @@ export default function ChatPage() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask Rai anything…"
-              className="flex-1 bg-transparent outline-none text-[14px] font-medium text-ink-navy placeholder:text-ink-muted py-2"
+              className="flex-1 bg-transparent outline-none text-[14px] font-semibold text-ink-navy placeholder:text-ink-muted py-2 tracking-tight"
             />
             {input.trim() ? (
               <button
@@ -151,10 +166,16 @@ export default function ChatPage() {
             )}
           </form>
         </div>
-
-        <BottomNav active="chat" />
+      }
+    >
+      <div className="px-4 py-4 flex flex-col gap-3">
+        {messages.map((m) => (
+          <Bubble key={m.id} msg={m} />
+        ))}
+        {typing && <TypingBubble />}
+        <div ref={endRef} />
       </div>
-    </PhoneFrame>
+    </AppShell>
   );
 }
 
@@ -164,27 +185,83 @@ function Bubble({ msg }: { msg: Msg }) {
     <motion.div
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
-      className={`mb-3 flex items-end gap-2 ${isMe ? "justify-end" : "justify-start"}`}
+      className={`flex items-end gap-2 ${isMe ? "justify-end" : "justify-start"}`}
     >
       {!isMe && <RaiAvatar size="small" mood="happy" />}
       <div
-        className={`max-w-[75%] px-4 py-2.5 text-[14px] leading-snug whitespace-pre-wrap ${
+        className={`max-w-[78%] px-4 py-3 ${
           isMe
-            ? "bg-brand-blue text-white rounded-[20px] rounded-br-[6px] shadow-float font-semibold"
-            : "bg-white text-ink-navy rounded-[20px] rounded-bl-[6px] border border-ink-line font-medium"
+            ? "bg-brand-blue text-white rounded-[22px] rounded-br-[6px] shadow-float"
+            : "bg-white text-ink-navy rounded-[22px] rounded-bl-[6px] border border-ink-line shadow-soft"
         }`}
       >
-        {msg.text}
+        {msg.parts.map((p, i) => (
+          <PartView key={i} part={p} isMe={isMe} />
+        ))}
       </div>
     </motion.div>
   );
 }
 
+function PartView({ part, isMe }: { part: MsgPart; isMe: boolean }) {
+  if (part.type === "text") {
+    return (
+      <p
+        className={`text-[14px] leading-[1.45] tracking-[-0.01em] ${
+          isMe ? "font-bold" : "font-semibold"
+        }`}
+      >
+        {part.text}
+      </p>
+    );
+  }
+  // list
+  return (
+    <div className="flex flex-col gap-2">
+      <p
+        className={`text-[14px] leading-[1.4] font-extrabold tracking-tight ${
+          isMe ? "text-white" : "text-ink-navy"
+        }`}
+      >
+        {part.title}
+      </p>
+      <ol className="flex flex-col gap-1.5 mt-0.5">
+        {part.items.map((it, i) => (
+          <li
+            key={i}
+            className={`flex gap-2 text-[13px] leading-[1.45] ${
+              isMe ? "text-white/95" : "text-ink-navy"
+            }`}
+          >
+            <span
+              className={`shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-extrabold ${
+                isMe ? "bg-white/20 text-white" : "bg-brand-blueSoft text-brand-blue"
+              }`}
+            >
+              {i + 1}
+            </span>
+            <span className="font-semibold">{it}</span>
+          </li>
+        ))}
+      </ol>
+      {part.tail && (
+        <p
+          className={`mt-1 text-[13px] leading-[1.45] font-semibold ${
+            isMe ? "text-white/90" : "text-ink-slate"
+          }`}
+        >
+          {part.tail}
+        </p>
+      )}
+    </div>
+  );
+}
+
 function TypingBubble() {
   return (
-    <div className="mb-3 flex items-end gap-2">
+    <div className="flex items-end gap-2">
       <RaiAvatar size="small" mood="thinking" />
-      <div className="bg-white rounded-[20px] rounded-bl-[6px] border border-ink-line px-4 py-3 flex items-center gap-1">
+      <div className="bg-white rounded-[22px] rounded-bl-[6px] border border-ink-line px-4 py-3 flex items-center gap-1">
         <Dot delay={0} />
         <Dot delay={0.15} />
         <Dot delay={0.3} />
@@ -206,7 +283,7 @@ function Dot({ delay }: { delay: number }) {
 function pickReply(input: string) {
   const t = input.toLowerCase();
   if (t.includes("quiz")) {
-    return "Cool — I've lined up 10 questions on Chapter 4. Tap to start when you're ready!";
+    return "Cool — I've lined up 10 questions on Chapter 4. Tap to start when you're ready.";
   }
   if (t.includes("cpm") || t.includes("cpp")) {
     return "CPM = cost per 1,000 impressions (digital/print). CPP = cost per rating point (TV/radio). Use whichever matches the channel you're comparing.";
@@ -214,5 +291,5 @@ function pickReply(input: string) {
   if (t.includes("flashcard")) {
     return "Generating 18 flashcards from your MAS 312 notes now. I'll space them out over the week — sound good?";
   }
-  return "Got it. Let me pull that together — one sec…";
+  return "Got it — let me pull that together. One sec.";
 }

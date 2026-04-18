@@ -249,3 +249,151 @@ export const Heart = ({ size = 18, ...p }: IconProps) => (
     />
   </svg>
 );
+
+/* Bespoke content icons — replace all emojis with these */
+
+export const Megaphone = ({ size = 24, ...p }: IconProps) => (
+  <svg {...base(size)} {...p}>
+    <path d="M4 10v4a2 2 0 0 0 2 2h3l7 4V4l-7 4H6a2 2 0 0 0-2 2Z" {...stroke} />
+    <path d="M18 8a5 5 0 0 1 0 8M9 16v3a2 2 0 0 0 4 0v-2" {...stroke} />
+  </svg>
+);
+
+export const Newspaper = ({ size = 24, ...p }: IconProps) => (
+  <svg {...base(size)} {...p}>
+    <rect x="3" y="4" width="15" height="16" rx="2" {...stroke} />
+    <path d="M18 8h2a1 1 0 0 1 1 1v9a2 2 0 0 1-2 2M7 8h7M7 12h7M7 16h4" {...stroke} />
+  </svg>
+);
+
+export const MicStudio = ({ size = 24, ...p }: IconProps) => (
+  <svg {...base(size)} {...p}>
+    <rect x="9" y="3" width="6" height="10" rx="3" {...stroke} />
+    <path d="M6 10a6 6 0 0 0 12 0M12 16v4M9 21h6" {...stroke} />
+    <path d="M11 6h2M11 8.5h2" {...stroke} />
+  </svg>
+);
+
+export const Scales = ({ size = 24, ...p }: IconProps) => (
+  <svg {...base(size)} {...p}>
+    <path d="M12 4v16M6 20h12M4 8l-2 5a3 3 0 0 0 6 0L6 8 4 8Zm16 0-2 5a3 3 0 0 0 6 0l-2-5h-2Z" {...stroke} />
+    <path d="M6 8l6-2 6 2" {...stroke} />
+  </svg>
+);
+
+export const Target = ({ size = 22, ...p }: IconProps) => (
+  <svg {...base(size)} {...p}>
+    <circle cx="12" cy="12" r="9" {...stroke} />
+    <circle cx="12" cy="12" r="5.5" {...stroke} />
+    <circle cx="12" cy="12" r="2" fill="currentColor" />
+  </svg>
+);
+
+export const Wave = ({ size = 22, ...p }: IconProps) => (
+  <svg {...base(size)} {...p}>
+    <path d="M10 3a1.5 1.5 0 0 1 3 0v6M13 9V5a1.5 1.5 0 0 1 3 0v7" {...stroke} />
+    <path d="M16 10a1.5 1.5 0 0 1 3 0v5a7 7 0 0 1-14 0V9a1.5 1.5 0 0 1 3 0v4" {...stroke} />
+  </svg>
+);
+
+export const Medal = ({ size = 22, ...p }: IconProps) => (
+  <svg {...base(size)} {...p}>
+    <path d="M8 3h8l-2 6h-4L8 3Z" {...stroke} />
+    <circle cx="12" cy="15" r="6" {...stroke} />
+    <path d="M12 12v6M9 15h6" {...stroke} />
+  </svg>
+);
+
+export const Handshake = ({ size = 22, ...p }: IconProps) => (
+  <svg {...base(size)} {...p}>
+    <path d="M3 11l4-4 3 2 5-2 6 4v3l-3 3-3-2-2 2-3-1-3 2-4-4v-3Z" {...stroke} />
+    <path d="M10 9l3 3M14 10l2 2" {...stroke} />
+  </svg>
+);
+
+export const BrainBolt = ({ size = 22, ...p }: IconProps) => (
+  <svg {...base(size)} {...p}>
+    <path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5c0 1 .5 2 1.5 2.5 0 2 1.5 3.5 3.5 3.5h2V4Z" {...stroke} />
+    <path d="M15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5c0 1-.5 2-1.5 2.5 0 2-1.5 3.5-3.5 3.5h-2V4Z" {...stroke} />
+    <path d="M12 8l-2 4h3l-2 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" fill="none" />
+  </svg>
+);
+
+export const Folder = ({ size = 22, ...p }: IconProps) => (
+  <svg {...base(size)} {...p}>
+    <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z" {...stroke} />
+  </svg>
+);
+
+export const Upload = ({ size = 20, ...p }: IconProps) => (
+  <svg {...base(size)} {...p}>
+    <path d="M12 16V4m0 0l-4 4m4-4l4 4M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" {...stroke} />
+  </svg>
+);
+
+export const Lightning = ({ size = 20, ...p }: IconProps) => (
+  <svg {...base(size)} {...p}>
+    <path d="M13 2L4 14h7l-1 8 9-12h-7l1-8Z" fill="currentColor" />
+  </svg>
+);
+
+export const Hand = ({ size = 20, ...p }: IconProps) => (
+  <svg {...base(size)} {...p}>
+    <path d="M7 11V5a1.5 1.5 0 0 1 3 0v6M10 11V3.5a1.5 1.5 0 0 1 3 0V11M13 11V4.5a1.5 1.5 0 0 1 3 0V12M16 11V6.5a1.5 1.5 0 0 1 3 0V15a7 7 0 0 1-14 0v-2a1.5 1.5 0 0 1 3 0v2" {...stroke} />
+  </svg>
+);
+
+export const Rocket = ({ size = 22, ...p }: IconProps) => (
+  <svg {...base(size)} {...p}>
+    <path d="M5 15c0-6 5-12 11-12 1 0 2 0 2 0s0 1 0 2c0 6-6 11-12 11l-1-1Z" {...stroke} />
+    <path d="M5 15l-2 2 2 4 4-2M15 9a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" {...stroke} />
+  </svg>
+);
+
+export const Calendar = ({ size = 22, ...p }: IconProps) => (
+  <svg {...base(size)} {...p}>
+    <rect x="3" y="5" width="18" height="16" rx="3" {...stroke} />
+    <path d="M3 10h18M8 3v4M16 3v4" {...stroke} />
+  </svg>
+);
+
+export const Globe = ({ size = 22, ...p }: IconProps) => (
+  <svg {...base(size)} {...p}>
+    <circle cx="12" cy="12" r="9" {...stroke} />
+    <path d="M3 12h18M12 3a12 12 0 0 1 0 18M12 3a12 12 0 0 0 0 18" {...stroke} />
+  </svg>
+);
+
+export const Star = ({ size = 18, ...p }: IconProps) => (
+  <svg {...base(size)} {...p}>
+    <path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17.2l-5.5 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z" fill="currentColor" />
+  </svg>
+);
+
+export const Video = ({ size = 20, ...p }: IconProps) => (
+  <svg {...base(size)} {...p}>
+    <rect x="3" y="6" width="14" height="12" rx="2.5" {...stroke} />
+    <path d="M17 10l4-2v8l-4-2" {...stroke} />
+  </svg>
+);
+
+export const Image = ({ size = 20, ...p }: IconProps) => (
+  <svg {...base(size)} {...p}>
+    <rect x="3" y="4" width="18" height="16" rx="3" {...stroke} />
+    <circle cx="9" cy="10" r="1.8" {...stroke} />
+    <path d="M3 18l5-5 4 3 3-2 6 5" {...stroke} />
+  </svg>
+);
+
+export const Close = ({ size = 18, ...p }: IconProps) => (
+  <svg {...base(size)} {...p}>
+    <path d="M6 6l12 12M18 6l-12 12" {...stroke} />
+  </svg>
+);
+
+export const PhoneOff = ({ size = 18, ...p }: IconProps) => (
+  <svg {...base(size)} {...p}>
+    <path d="M2 14l4-4a2 2 0 0 1 2-.5l2 .5 1 3 3 1 .5 2A2 2 0 0 1 14 18l-4 4a10 10 0 0 1-8-8Z" {...stroke} />
+    <path d="M15 9l6-6M21 9l-6-6" {...stroke} />
+  </svg>
+);

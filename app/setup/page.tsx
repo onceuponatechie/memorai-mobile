@@ -25,31 +25,37 @@ export default function SetupPage() {
       <div className="relative h-full w-full flex flex-col">
         <StatusBar />
 
-        <div className="px-6 pt-2 flex items-center justify-between">
+        <div className="shrink-0 px-6 pt-2 flex items-center justify-between">
           <Link
             href="/signup"
-            className="w-10 h-10 rounded-full bg-ink-line flex items-center justify-center text-ink-navy"
+            className="w-11 h-11 rounded-2xl bg-ink-line flex items-center justify-center text-ink-navy"
           >
             <ArrowLeft />
           </Link>
-          <span className="text-caption font-bold text-ink-slate">
+          <span className="text-[11px] font-extrabold text-ink-slate tracking-[0.14em] uppercase">
             Step 2 of 2
           </span>
         </div>
 
-        <div className="px-6 mt-3">
+        <div className="shrink-0 px-6 mt-3">
           <div className="h-1.5 w-full bg-ink-line rounded-full overflow-hidden">
-            <div className="h-full w-full bg-brand-blue rounded-full" />
+            <div
+              className="h-full w-full rounded-full"
+              style={{
+                background:
+                  "linear-gradient(90deg, #5a95ee, #3d7de8, #2c5fc7)",
+              }}
+            />
           </div>
         </div>
 
-        <div className="flex-1 overflow-auto hide-scroll px-6 pb-8 pt-6">
+        <div className="flex-1 min-h-0 overflow-y-auto hide-scroll px-6 pb-6 pt-6">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
           >
             <h1 className="text-display text-ink-navy">Almost there!</h1>
-            <p className="text-body text-ink-slate mt-1">
+            <p className="text-body text-ink-slate mt-1 font-semibold">
               Pick a username and set up your first study room.
             </p>
 
@@ -73,7 +79,8 @@ export default function SetupPage() {
                 title="Create a Room"
                 subtitle="Start a new study group for your course"
                 icon={<Plus />}
-                accent="#3d7de8"
+                fill="#3d7de8"
+                fillDeep="#2c5fc7"
                 onClick={() => setMode("create")}
               />
               <OptionCard
@@ -81,7 +88,8 @@ export default function SetupPage() {
                 title="Join a Room"
                 subtitle="Enter a 6-digit code from a classmate"
                 icon={<UsersIcon />}
-                accent="#8b7cf6"
+                fill="#8b7cf6"
+                fillDeep="#6b57d9"
                 onClick={() => setMode("join")}
               />
             </div>
@@ -113,7 +121,7 @@ export default function SetupPage() {
                 <motion.div
                   key="join"
                   initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  animate={{ opacity: 1, y: -0 }}
                   exit={{ opacity: 0, y: -10 }}
                   className="mt-5"
                 >
@@ -129,7 +137,7 @@ export default function SetupPage() {
           </motion.div>
         </div>
 
-        <div className="px-6 pb-6">
+        <div className="shrink-0 px-6 pb-6 pt-2 bg-white border-t border-ink-line">
           <ActionButton size="lg" onClick={() => router.push("/dashboard")}>
             Let&apos;s Go
           </ActionButton>
@@ -144,34 +152,39 @@ function OptionCard({
   title,
   subtitle,
   icon,
-  accent,
+  fill,
+  fillDeep,
   onClick,
 }: {
   active: boolean;
   title: string;
   subtitle: string;
   icon: React.ReactNode;
-  accent: string;
+  fill: string;
+  fillDeep: string;
   onClick: () => void;
 }) {
   return (
     <button
       onClick={onClick}
-      className={`w-full flex items-center gap-3 p-4 rounded-[20px] border-2 transition-all text-left ${
+      className={`relative overflow-hidden w-full flex items-center gap-3 p-4 rounded-[22px] border-2 transition-all text-left ${
         active
-          ? "border-brand-blue bg-brand-blueSoft"
-          : "border-ink-line bg-white"
+          ? "border-brand-blue bg-brand-blueSoft shadow-float"
+          : "border-ink-line bg-white shadow-soft"
       }`}
     >
       <div
-        className="w-11 h-11 rounded-xl flex items-center justify-center text-white shrink-0"
-        style={{ background: accent }}
+        className="w-12 h-12 rounded-[14px] flex items-center justify-center text-white shrink-0"
+        style={{
+          background: `linear-gradient(145deg, ${fill}, ${fillDeep})`,
+          boxShadow: `0 12px 20px -12px ${fillDeep}cc, inset 0 1px 0 rgba(255,255,255,0.35)`,
+        }}
       >
         {icon}
       </div>
       <div className="flex-1">
-        <p className="text-[15px] font-bold text-ink-navy">{title}</p>
-        <p className="text-[12px] text-ink-slate">{subtitle}</p>
+        <p className="text-[15px] font-extrabold text-ink-navy">{title}</p>
+        <p className="text-[12px] text-ink-slate font-semibold">{subtitle}</p>
       </div>
       <div
         className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 ${
