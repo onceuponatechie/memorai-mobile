@@ -15,6 +15,7 @@ import {
   LockIcon,
   EyeIcon,
   Google,
+  Sparkle,
 } from "@/components/Icons";
 
 export default function SignUpPage() {
@@ -27,25 +28,26 @@ export default function SignUpPage() {
     <PhoneFrame>
       <div className="relative h-full w-full flex flex-col">
         <StatusBar />
-        <div className="px-6 pt-2 flex items-center">
+        <div className="shrink-0 px-6 pt-2 flex items-center">
           <Link
             href="/"
-            className="w-10 h-10 rounded-full bg-ink-line flex items-center justify-center text-ink-navy"
+            className="w-11 h-11 rounded-2xl bg-ink-line flex items-center justify-center text-ink-navy"
           >
             <ArrowLeft />
           </Link>
         </div>
 
-        <div className="flex-1 overflow-auto hide-scroll px-6 pb-8">
+        <div className="flex-1 min-h-0 overflow-y-auto hide-scroll px-6 pb-8">
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             className="flex flex-col items-center mt-2"
           >
             <div className="relative flex flex-col items-center">
-              <div className="relative bg-brand-blue text-white px-3.5 py-2 rounded-[16px] rounded-br-md mb-2 shadow-float">
-                <p className="text-[13px] font-bold">
-                  Let&apos;s get you set up! 📚
+              <div className="relative bg-brand-blue text-white px-3.5 py-2 rounded-[16px] rounded-br-md mb-2 shadow-float flex items-center gap-1.5">
+                <Sparkle size={14} />
+                <p className="text-[13px] font-extrabold">
+                  Let&apos;s get you set up
                 </p>
                 <div className="absolute -bottom-1.5 right-6 w-3 h-3 bg-brand-blue rotate-45" />
               </div>
@@ -60,7 +62,7 @@ export default function SignUpPage() {
             className="mt-6"
           >
             <h1 className="text-display text-ink-navy">Create Account</h1>
-            <p className="text-body text-ink-slate mt-1">
+            <p className="text-body text-ink-slate mt-1 font-semibold">
               Join thousands of students learning smarter.
             </p>
 
@@ -69,7 +71,7 @@ export default function SignUpPage() {
                 e.preventDefault();
                 router.push("/setup");
               }}
-              className="mt-7 flex flex-col gap-4"
+              className="mt-6 flex flex-col gap-4"
             >
               <InputField
                 label="Email"
@@ -106,7 +108,7 @@ export default function SignUpPage() {
 
             <div className="flex items-center gap-3 my-6">
               <div className="flex-1 h-px bg-ink-line" />
-              <span className="text-[12px] text-ink-muted font-semibold">
+              <span className="text-[11px] text-ink-muted font-extrabold tracking-wider uppercase">
                 or continue with
               </span>
               <div className="flex-1 h-px bg-ink-line" />
@@ -114,15 +116,15 @@ export default function SignUpPage() {
 
             <button
               onClick={() => router.push("/setup")}
-              className="w-full h-14 rounded-[20px] bg-white border border-ink-line flex items-center justify-center gap-3 font-bold text-ink-navy active:scale-[0.98] transition"
+              className="w-full h-14 rounded-[20px] bg-white border border-ink-line flex items-center justify-center gap-3 font-extrabold text-ink-navy active:scale-[0.98] transition shadow-soft"
             >
               <Google size={20} />
               Continue with Google
             </button>
 
-            <p className="text-center text-small text-ink-slate mt-6">
+            <p className="text-center text-small text-ink-slate mt-6 font-semibold">
               Already have an account?{" "}
-              <Link href="/" className="text-brand-blue font-bold">
+              <Link href="/" className="text-brand-blue font-extrabold">
                 Log in
               </Link>
             </p>

@@ -45,9 +45,11 @@ const config: Config = {
         pill: "999px",
       },
       boxShadow: {
-        card: "0 8px 24px -12px rgba(15, 26, 61, 0.12)",
-        soft: "0 4px 16px -8px rgba(15, 26, 61, 0.08)",
-        float: "0 18px 40px -20px rgba(61, 125, 232, 0.45)",
+        card: "0 14px 32px -18px rgba(15, 26, 61, 0.2), 0 2px 4px -2px rgba(15, 26, 61, 0.06)",
+        soft: "0 6px 18px -10px rgba(15, 26, 61, 0.14)",
+        float: "0 22px 44px -22px rgba(61, 125, 232, 0.6), inset 0 1px 0 rgba(255,255,255,0.2)",
+        pop: "0 30px 60px -24px rgba(15, 26, 61, 0.35), inset 0 1px 0 rgba(255,255,255,0.25)",
+        inset: "inset 0 1px 0 rgba(255,255,255,0.4)",
       },
       keyframes: {
         floaty: {
