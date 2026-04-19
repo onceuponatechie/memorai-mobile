@@ -20,7 +20,6 @@ import {
   Check,
   UsersIcon,
   Upload,
-  Star,
   Play,
   Close,
 } from "@/components/Icons";
@@ -82,10 +81,6 @@ export default function CoursePage() {
                 {course.title}
               </h2>
               <div className="mt-3 flex items-center gap-2">
-                <div className="flex items-center gap-1 rounded-full bg-black/15 px-2.5 py-1">
-                  <Star size={12} />
-                  <span className="text-[11px] font-extrabold">5.0</span>
-                </div>
                 <div className="flex items-center gap-1 rounded-full bg-black/15 px-2.5 py-1">
                   <Play size={10} />
                   <span className="text-[11px] font-extrabold">
@@ -188,8 +183,8 @@ export default function CoursePage() {
               title="Chat with Rai"
               subtitle="Ask anything"
               icon={<ChatIcon />}
-              fill="#2596be"
-              fillDeep="#1a7795"
+              fill="#53baf7"
+              fillDeep="#2793d5"
             />
           </Link>
         </div>
@@ -316,7 +311,7 @@ function ToolCard({
   return (
     <button
       onClick={onClick}
-      className="relative overflow-hidden text-left p-4 rounded-[22px] text-white active:scale-[0.98] transition"
+      className="relative w-full h-full overflow-hidden text-left p-4 rounded-[22px] text-white active:scale-[0.98] transition"
       style={{
         background: `linear-gradient(145deg, ${fill} 0%, ${fillDeep} 100%)`,
         boxShadow: `0 18px 30px -18px ${fillDeep}aa, inset 0 1px 0 rgba(255,255,255,0.3)`,
@@ -443,7 +438,7 @@ function FlashcardsExample() {
       <div
         className="relative mt-4 h-56 rounded-[24px] text-white p-5 flex flex-col justify-between overflow-hidden"
         style={{
-          background: "linear-gradient(145deg, #5fc4dc, #2596be 60%, #1a7795)",
+          background: "linear-gradient(145deg, #8fd4fc, #53baf7 60%, #2793d5)",
           boxShadow: "0 30px 60px -26px rgba(61,125,232,0.75), inset 0 1px 0 rgba(255,255,255,0.3)",
         }}
       >

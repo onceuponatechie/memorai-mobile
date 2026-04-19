@@ -61,7 +61,7 @@ export default function StatsPage() {
           className="relative overflow-hidden p-5 rounded-[26px] text-white"
           style={{
             background:
-              "linear-gradient(145deg, #5fc4dc 0%, #2596be 55%, #1a7795 100%)",
+              "linear-gradient(145deg, #8fd4fc 0%, #53baf7 55%, #2793d5 100%)",
             boxShadow:
               "0 30px 60px -28px rgba(61,125,232,0.7), inset 0 1px 0 rgba(255,255,255,0.35)",
           }}

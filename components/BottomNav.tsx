@@ -14,8 +14,8 @@ type Tab = {
 const tabs: Tab[] = [
   { key: "home", href: "/dashboard", label: "Home", Icon: HomeIcon },
   { key: "chat", href: "/chat", label: "Rai", Icon: ChatIcon },
-  { key: "stats", href: "/stats", label: "Stats", Icon: ChartIcon },
   { key: "library", href: "/library", label: "Library", Icon: BookIcon },
+  { key: "stats", href: "/stats", label: "Stats", Icon: ChartIcon },
 ];
 
 export default function BottomNav({ active }: { active?: string }) {
@@ -44,7 +44,7 @@ export default function BottomNav({ active }: { active?: string }) {
               ) : (
                 <div className="flex flex-col items-center gap-0.5 py-1.5 text-white/70">
                   <Icon size={20} />
-                  <span className="text-[9px] font-extrabold tracking-wider uppercase">
+                  <span className="text-[10px] font-extrabold">
                     {label}
                   </span>
                 </div>

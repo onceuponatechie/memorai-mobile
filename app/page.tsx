@@ -10,15 +10,14 @@ import { Sparkle } from "@/components/Icons";
 
 export default function SplashPage() {
   return (
-    <PhoneFrame background="#1a7795">
+    <PhoneFrame background="#2793d5">
       <div
         className="relative h-full w-full text-white flex flex-col"
         style={{
           background:
-            "radial-gradient(120% 80% at 20% 0%, #5fc4dc 0%, #2596be 45%, #1a7795 100%)",
+            "radial-gradient(120% 80% at 20% 0%, #8fd4fc 0%, #53baf7 45%, #2793d5 100%)",
         }}
       >
-        <span className="absolute inset-0 bg-grain opacity-50 pointer-events-none" />
         <div className="absolute -top-20 -left-16 w-64 h-64 rounded-full bg-white/15 blur-2xl" />
         <div className="absolute top-1/3 -right-12 w-56 h-56 rounded-full bg-accent-orchid/40 blur-2xl" />
         <div className="absolute bottom-10 left-10 w-44 h-44 rounded-full bg-accent-butter/25 blur-2xl" />
