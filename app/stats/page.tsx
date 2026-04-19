@@ -32,10 +32,10 @@ export default function StatsPage() {
       header={
         <div className="px-6 pt-2 pb-2 flex items-start justify-between">
           <div>
-            <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-ink-slate">
-              Apr 14 – 20 · This Week
+            <h1 className="text-display text-ink-navy">Your Stats</h1>
+            <p className="text-[12px] font-medium tracking-normal text-ink-slate mt-1">
+              Apr 14 – 20 · This week
             </p>
-            <h1 className="text-display text-ink-navy mt-0.5">Your Stats</h1>
           </div>
           <div
             className="w-16 h-16 rounded-[20px] flex flex-col items-center justify-center"
@@ -45,8 +45,8 @@ export default function StatsPage() {
                 "0 16px 28px -16px rgba(217,164,42,0.7), inset 0 1px 0 rgba(255,255,255,0.6)",
             }}
           >
-            <span className="text-[9px] font-extrabold text-[#7d5600] tracking-wider">
-              GRADE
+            <span className="text-[10px] font-bold text-[#7d5600] tracking-wide">
+              Grade
             </span>
             <span className="text-[26px] font-extrabold text-ink-navy leading-none">
               C+
@@ -61,7 +61,7 @@ export default function StatsPage() {
           className="relative overflow-hidden p-5 rounded-[26px] text-white"
           style={{
             background:
-              "linear-gradient(145deg, #8fd4fc 0%, #53baf7 55%, #2793d5 100%)",
+              "linear-gradient(145deg, #7ba9f0 0%, #3d7de8 55%, #2a5fbe 100%)",
             boxShadow:
               "0 30px 60px -28px rgba(61,125,232,0.7), inset 0 1px 0 rgba(255,255,255,0.35)",
           }}
@@ -76,8 +76,8 @@ export default function StatsPage() {
               <Flame />
             </div>
             <div>
-              <p className="text-caption font-extrabold text-white/75 tracking-wider">
-                STUDY STREAK
+              <p className="text-caption font-bold text-white/85 tracking-wide">
+                Study streak
               </p>
               <p className="text-h1">4 of 7 days</p>
             </div>
@@ -115,8 +115,8 @@ export default function StatsPage() {
               <RaiAvatar mood="thinking" size="medium" />
             </div>
             <div className="flex-1">
-              <p className="text-[11px] font-extrabold tracking-[0.14em] uppercase text-ink-slate">
-                Rai&apos;s Weekly Take
+              <p className="text-[12px] font-bold tracking-normal text-ink-slate">
+                Rai&apos;s weekly take
               </p>
               <p className="text-[14px] text-ink-navy mt-1.5 leading-[1.55] font-semibold">
                 You&apos;re{" "}
@@ -237,8 +237,8 @@ export default function StatsPage() {
               <RaiAvatar mood="excited" size="medium" />
             </div>
             <div className="flex-1">
-              <p className="text-caption font-extrabold text-white/80 tracking-wider">
-                NEXT WEEK
+              <p className="text-caption font-bold text-white/85 tracking-wide">
+                Next week
               </p>
               <p className="text-h2 leading-tight">
                 Let&apos;s aim for a 6-day streak
@@ -290,7 +290,7 @@ function MetricCard({
         >
           <Lightning size={12} />
         </span>
-        <p className="text-[10px] font-extrabold uppercase tracking-wider text-ink-slate">
+        <p className="text-[11px] font-bold tracking-normal text-ink-slate">
           {label}
         </p>
       </div>

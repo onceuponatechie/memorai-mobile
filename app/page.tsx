@@ -10,18 +10,11 @@ import { Sparkle } from "@/components/Icons";
 
 export default function SplashPage() {
   return (
-    <PhoneFrame background="#2793d5">
+    <PhoneFrame background="#3d7de8">
       <div
         className="relative h-full w-full text-white flex flex-col"
-        style={{
-          background:
-            "radial-gradient(120% 80% at 20% 0%, #8fd4fc 0%, #53baf7 45%, #2793d5 100%)",
-        }}
+        style={{ background: "#3d7de8" }}
       >
-        <div className="absolute -top-20 -left-16 w-64 h-64 rounded-full bg-white/15 blur-2xl" />
-        <div className="absolute top-1/3 -right-12 w-56 h-56 rounded-full bg-accent-orchid/40 blur-2xl" />
-        <div className="absolute bottom-10 left-10 w-44 h-44 rounded-full bg-accent-butter/25 blur-2xl" />
-
         <StatusBar time="9:41" tone="light" />
 
         <div className="relative flex-1 flex flex-col items-center justify-between pt-8 pb-8 px-8">
@@ -79,11 +72,11 @@ export default function SplashPage() {
             className="w-full flex flex-col items-center gap-3"
           >
             <Link href="/signup" className="w-full">
-              <ActionButton variant="white" size="lg">
+              <ActionButton variant="white" size="lg" className="!rounded-pill">
                 Get Started
               </ActionButton>
             </Link>
-            <p className="text-[11px] text-white/60 font-extrabold tracking-wider uppercase">
+            <p className="text-[11px] text-white/70 font-semibold tracking-wider">
               Powered by Claude
             </p>
           </motion.div>

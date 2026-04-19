@@ -108,7 +108,7 @@ export default function SignUpPage() {
 
             <div className="flex items-center gap-3 my-6">
               <div className="flex-1 h-px bg-ink-line" />
-              <span className="text-[11px] text-ink-muted font-extrabold tracking-wider uppercase">
+              <span className="text-[11px] text-ink-muted font-semibold tracking-wide">
                 or continue with
               </span>
               <div className="flex-1 h-px bg-ink-line" />
