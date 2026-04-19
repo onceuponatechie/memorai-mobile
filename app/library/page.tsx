@@ -17,11 +17,11 @@ export default function LibraryPage() {
       bottomNav="library"
       header={
         <div className="px-6 pt-2 pb-3">
-          <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-ink-slate">
+          <p className="text-[11px] font-semibold tracking-[0.08em] text-ink-slate">
             Your workspace
           </p>
           <h1 className="text-display text-ink-navy">Library</h1>
-          <p className="text-small text-ink-slate font-semibold">
+          <p className="text-small text-ink-slate font-medium">
             All resources in one place.
           </p>
           <div className="mt-3 flex items-center gap-2 bg-ink-line/60 rounded-[16px] px-3.5 h-11">
@@ -29,7 +29,7 @@ export default function LibraryPage() {
             <input
               type="search"
               placeholder="Search files & notes"
-              className="flex-1 bg-transparent outline-none text-[14px] font-semibold text-ink-navy placeholder:text-ink-slate"
+              className="flex-1 bg-transparent outline-none text-[12px] font-normal text-ink-navy placeholder:text-ink-slate"
             />
           </div>
         </div>
@@ -63,7 +63,7 @@ export default function LibraryPage() {
                   <IconBy name={c.icon} size={22} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-[10px] font-extrabold uppercase tracking-wider text-ink-slate">
+                  <p className="text-[11px] font-semibold tracking-wide text-ink-slate">
                     {c.code}
                   </p>
                   <p className="text-small font-extrabold text-ink-navy truncate">
@@ -104,7 +104,7 @@ export default function LibraryPage() {
         <div
           className="relative overflow-hidden mt-6 p-4 rounded-[22px] text-white"
           style={{
-            background: "linear-gradient(145deg, #8fd4fc 0%, #53baf7 60%, #2793d5 100%)",
+            background: "linear-gradient(145deg, #7ba9f0 0%, #3d7de8 60%, #2a5fbe 100%)",
             boxShadow:
               "0 26px 50px -24px rgba(61,125,232,0.65), inset 0 1px 0 rgba(255,255,255,0.35)",
           }}

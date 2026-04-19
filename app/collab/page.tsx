@@ -119,8 +119,8 @@ export default function CollabPage() {
             <ArrowLeft />
           </Link>
           <div className="flex-1">
-            <p className="text-[10px] font-extrabold text-accent-purple tracking-[0.14em]">
-              LIVE SESSION
+            <p className="text-[12px] font-bold text-accent-purple tracking-normal">
+              Live session
             </p>
             <p className="text-h2 text-ink-navy leading-tight">
               Media Planning Jam
@@ -194,7 +194,7 @@ export default function CollabPage() {
               className="relative w-14 h-14 rounded-2xl flex items-center justify-center"
               style={{
                 background:
-                  "linear-gradient(145deg, #8fd4fc, #53baf7 60%, #2793d5)",
+                  "linear-gradient(145deg, #7ba9f0, #3d7de8 60%, #2a5fbe)",
                 boxShadow:
                   "0 14px 24px -14px rgba(61,125,232,0.7), inset 0 1px 0 rgba(255,255,255,0.35)",
               }}
@@ -205,8 +205,8 @@ export default function CollabPage() {
               </span>
             </div>
             <span className="text-[11px] font-extrabold text-ink-navy">Rai</span>
-            <span className="text-[9px] font-extrabold text-accent-mint tracking-wider">
-              HOST
+            <span className="text-[10px] font-bold text-accent-mint tracking-normal">
+              Host
             </span>
           </div>
 
@@ -220,7 +220,7 @@ export default function CollabPage() {
                   name={p.name}
                   size="lg"
                   ring
-                  ringColor={p.speaking ? "#53baf7" : "#ffffff"}
+                  ringColor={p.speaking ? "#3d7de8" : "#ffffff"}
                   ringWidth={p.speaking ? 3 : 2}
                 />
                 {p.speaking && (
@@ -233,11 +233,11 @@ export default function CollabPage() {
                 {p.name}
               </span>
               <span
-                className={`text-[9px] font-extrabold tracking-wider ${
+                className={`text-[10px] font-bold tracking-normal ${
                   p.speaking ? "text-accent-mint" : "text-ink-muted"
                 }`}
               >
-                {p.speaking ? "SPEAKING" : "MUTED"}
+                {p.speaking ? "Speaking" : "Muted"}
               </span>
             </div>
           ))}

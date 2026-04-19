@@ -32,7 +32,7 @@ export default function SetupPage() {
           >
             <ArrowLeft />
           </Link>
-          <span className="text-[11px] font-extrabold text-ink-slate tracking-[0.14em] uppercase">
+          <span className="text-[12px] font-semibold text-ink-slate tracking-normal">
             Step 2 of 2
           </span>
         </div>
@@ -43,7 +43,7 @@ export default function SetupPage() {
               className="h-full w-full rounded-full"
               style={{
                 background:
-                  "linear-gradient(90deg, #8fd4fc, #53baf7, #2793d5)",
+                  "linear-gradient(90deg, #7ba9f0, #3d7de8, #2a5fbe)",
               }}
             />
           </div>
@@ -79,8 +79,8 @@ export default function SetupPage() {
                 title="Create a Room"
                 subtitle="Start a new study group for your course"
                 icon={<Plus />}
-                fill="#53baf7"
-                fillDeep="#2793d5"
+                fill="#3d7de8"
+                fillDeep="#2a5fbe"
                 onClick={() => setMode("create")}
               />
               <OptionCard
