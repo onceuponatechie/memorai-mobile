@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans, Fredoka } from "next/font/google";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -9,13 +9,20 @@ const jakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
+const fredoka = Fredoka({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-fredoka",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Memorai — Study with Rai",
   description: "A collaborative study platform with an AI companion.",
 };
 
 export const viewport: Viewport = {
-  themeColor: "#3d7de8",
+  themeColor: "#2596be",
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
@@ -27,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={jakarta.variable}>
+    <html lang="en" className={`${jakarta.variable} ${fredoka.variable}`}>
       <body className="font-sans min-h-screen">{children}</body>
     </html>
   );

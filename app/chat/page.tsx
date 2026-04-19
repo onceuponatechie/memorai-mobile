@@ -113,7 +113,7 @@ export default function ChatPage() {
               <p className="text-[11px] text-accent-mint font-bold">● online</p>
             </div>
           </div>
-          <span className="text-[11px] font-extrabold text-brand-blue px-3 py-1.5 rounded-pill bg-brand-blueSoft">
+          <span className="text-[11px] font-extrabold text-white px-3 py-1.5 rounded-pill bg-brand-blue shadow-soft">
             MAS 312
           </span>
         </header>
@@ -125,7 +125,7 @@ export default function ChatPage() {
               <button
                 key={s}
                 onClick={() => send(s)}
-                className="shrink-0 flex items-center gap-1.5 h-9 px-3.5 rounded-pill bg-brand-blueSoft text-brand-blue text-[12px] font-extrabold border border-brand-blue/10"
+                className="shrink-0 flex items-center gap-1.5 h-9 px-3.5 rounded-pill bg-ink-navy text-white text-[12px] font-extrabold shadow-soft"
               >
                 <Sparkle size={12} />
                 {s}
@@ -235,7 +235,7 @@ function PartView({ part, isMe }: { part: MsgPart; isMe: boolean }) {
           >
             <span
               className={`shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-extrabold ${
-                isMe ? "bg-white/20 text-white" : "bg-brand-blueSoft text-brand-blue"
+                isMe ? "bg-white/25 text-white" : "bg-brand-blue text-white"
               }`}
             >
               {i + 1}

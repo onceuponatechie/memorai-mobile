@@ -10,12 +10,12 @@ import { Sparkle } from "@/components/Icons";
 
 export default function SplashPage() {
   return (
-    <PhoneFrame background="#2c5fc7">
+    <PhoneFrame background="#1a7795">
       <div
         className="relative h-full w-full text-white flex flex-col"
         style={{
           background:
-            "radial-gradient(120% 80% at 20% 0%, #5a95ee 0%, #3d7de8 45%, #2c5fc7 100%)",
+            "radial-gradient(120% 80% at 20% 0%, #5fc4dc 0%, #2596be 45%, #1a7795 100%)",
         }}
       >
         <span className="absolute inset-0 bg-grain opacity-50 pointer-events-none" />
@@ -63,8 +63,8 @@ export default function SplashPage() {
             transition={{ delay: 0.6 }}
             className="flex flex-col items-center text-center"
           >
-            <h1 className="text-[56px] leading-none font-extrabold tracking-tight">
-              MEMORAI
+            <h1 className="font-brand text-[68px] leading-none font-bold tracking-tight lowercase">
+              memorai
             </h1>
             <p className="mt-3 text-[15px] font-semibold text-white/85 max-w-[280px] leading-snug">
               Study together. Remember forever.

@@ -43,7 +43,7 @@ export default function SetupPage() {
               className="h-full w-full rounded-full"
               style={{
                 background:
-                  "linear-gradient(90deg, #5a95ee, #3d7de8, #2c5fc7)",
+                  "linear-gradient(90deg, #5fc4dc, #2596be, #1a7795)",
               }}
             />
           </div>
@@ -79,8 +79,8 @@ export default function SetupPage() {
                 title="Create a Room"
                 subtitle="Start a new study group for your course"
                 icon={<Plus />}
-                fill="#3d7de8"
-                fillDeep="#2c5fc7"
+                fill="#2596be"
+                fillDeep="#1a7795"
                 onClick={() => setMode("create")}
               />
               <OptionCard

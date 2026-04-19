@@ -94,7 +94,7 @@ export const activity: { id: string; icon: ActivityIcon; text: string; time: str
   { id: "a1", icon: "upload", text: "Amaka uploaded 'Chapter 4 Notes' to MAS 312", time: "2h ago", color: "#8b7cf6" },
   { id: "a2", icon: "target", text: "You scored 8/10 on Media Planning quiz", time: "5h ago", color: "#ff6f61" },
   { id: "a3", icon: "wave", text: "Tolu invited you to a study session", time: "Yesterday", color: "#62c4ff" },
-  { id: "a4", icon: "sparkle", text: "Rai generated flashcards for MAS 308", time: "Yesterday", color: "#3d7de8" },
+  { id: "a4", icon: "sparkle", text: "Rai generated flashcards for MAS 308", time: "Yesterday", color: "#2596be" },
   { id: "a5", icon: "flame", text: "You hit a 4-day study streak", time: "2 days ago", color: "#ff6f61" },
   { id: "a6", icon: "folder", text: "New resource: 'PR Case Studies' in MAS 314", time: "3 days ago", color: "#ffb066" },
 ];

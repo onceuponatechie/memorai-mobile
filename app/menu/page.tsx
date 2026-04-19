@@ -20,7 +20,7 @@ import {
 import { currentUser, friends } from "@/lib/data";
 
 const rooms = [
-  { name: "Mass Comm 300L", members: 4, accent: "#3d7de8" },
+  { name: "Mass Comm 300L", members: 4, accent: "#2596be" },
   { name: "Ad Agency Club", members: 9, accent: "#8b7cf6" },
 ];
 
@@ -33,15 +33,13 @@ export default function MenuPage() {
       label: "Profile",
       desc: "Edit photo, handle, bio",
       icon: <Gear />,
-      tint: "#e8f0ff",
-      color: "#3d7de8",
+      color: "#2596be",
     },
     {
       key: "rooms",
       label: "Rooms",
       desc: `${rooms.length} rooms`,
       icon: <UsersIcon />,
-      tint: "#ede9ff",
       color: "#8b7cf6",
     },
     {
@@ -49,7 +47,6 @@ export default function MenuPage() {
       label: "Friends",
       desc: `${currentUser.friendsCount} friends on Memorai`,
       icon: <Heart />,
-      tint: "#ffe4e0",
       color: "#ff6f61",
       href: "/collab",
     },
@@ -58,7 +55,6 @@ export default function MenuPage() {
       label: "Guide",
       desc: "How to use Memorai",
       icon: <BookIcon />,
-      tint: "#fff1db",
       color: "#ffb066",
     },
   ];
@@ -87,13 +83,12 @@ export default function MenuPage() {
           animate={{ opacity: 1, y: 0 }}
           className="relative overflow-hidden p-5 rounded-[26px]"
           style={{
-            background: "linear-gradient(145deg, #5a95ee 0%, #3d7de8 60%, #2c5fc7 100%)",
+            background: "linear-gradient(145deg, #5fc4dc 0%, #2596be 60%, #1a7795 100%)",
             boxShadow:
               "0 30px 60px -28px rgba(61,125,232,0.65), inset 0 1px 0 rgba(255,255,255,0.35)",
           }}
         >
           <span className="absolute -top-14 -right-12 w-52 h-52 rounded-full bg-white/15 blur-xl" />
-          <span className="absolute inset-0 bg-grain opacity-50" />
           <div className="relative flex items-center gap-4 text-white">
             <AvatarCircle
               name={currentUser.firstName}
@@ -142,7 +137,6 @@ export default function MenuPage() {
             <MenuRow
               key={it.key}
               icon={it.icon}
-              tint={it.tint}
               color={it.color}
               label={it.label}
               desc={it.desc}
@@ -228,7 +222,6 @@ export default function MenuPage() {
         <MenuRow
           label="Invite a Friend"
           desc="Share your room code"
-          tint="#fff1db"
           color="#ffb066"
           icon={<Sparkle />}
         />
@@ -238,17 +231,16 @@ export default function MenuPage() {
         <MenuRow
           label="Rate Us"
           desc="Tell us what you think"
-          tint="#e8f0ff"
-          color="#3d7de8"
+          color="#2596be"
           icon={<Star />}
         />
 
-        <button className="w-full mt-5 h-12 rounded-[18px] bg-accent-coral/15 text-accent-coral text-small font-extrabold">
+        <button className="w-full mt-5 h-12 rounded-[18px] bg-ink-navy text-white text-small font-extrabold shadow-soft">
           Sign Out
         </button>
 
         <p className="text-center text-[11px] text-ink-muted font-extrabold mt-6 tracking-wider">
-          MEMORAI · v0.1 · POWERED BY CLAUDE
+          memorai · v0.1 · POWERED BY CLAUDE
         </p>
       </div>
     </AppShell>
@@ -259,22 +251,23 @@ function MenuRow({
   icon,
   label,
   desc,
-  tint,
   color,
   href,
 }: {
   icon: React.ReactNode;
   label: string;
   desc: string;
-  tint: string;
   color: string;
   href?: string;
 }) {
   const Body = (
     <div className="flex items-center gap-3 p-3.5 bg-white rounded-[18px] border border-ink-line">
       <div
-        className="w-11 h-11 rounded-xl flex items-center justify-center"
-        style={{ background: tint, color }}
+        className="w-11 h-11 rounded-xl flex items-center justify-center text-white"
+        style={{
+          background: `linear-gradient(145deg, ${color}, ${color}cc)`,
+          boxShadow: `0 10px 18px -10px ${color}cc, inset 0 1px 0 rgba(255,255,255,0.3)`,
+        }}
       >
         {icon}
       </div>

@@ -78,7 +78,7 @@ export default function LibraryPage() {
               key={r.name}
               className="flex items-center gap-3 p-3 bg-white rounded-[18px] border border-ink-line"
             >
-              <div className="w-11 h-11 rounded-xl bg-brand-blueSoft text-brand-blue flex items-center justify-center">
+              <div className="w-11 h-11 rounded-xl bg-brand-blue text-white flex items-center justify-center shadow-soft">
                 <FileText size={20} />
               </div>
               <div className="flex-1 min-w-0">
@@ -96,13 +96,12 @@ export default function LibraryPage() {
         <div
           className="relative overflow-hidden mt-6 p-4 rounded-[22px] text-white"
           style={{
-            background: "linear-gradient(145deg, #5a95ee 0%, #3d7de8 60%, #2c5fc7 100%)",
+            background: "linear-gradient(145deg, #5fc4dc 0%, #2596be 60%, #1a7795 100%)",
             boxShadow:
               "0 26px 50px -24px rgba(61,125,232,0.65), inset 0 1px 0 rgba(255,255,255,0.35)",
           }}
         >
           <span className="absolute -top-10 -right-10 w-36 h-36 rounded-full bg-white/15 blur-xl" />
-          <span className="absolute inset-0 bg-grain opacity-40" />
           <div className="relative flex items-center gap-3">
             <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center">
               <RaiAvatar size="medium" mood="happy" />
@@ -148,7 +147,6 @@ function StatTile({
       }}
     >
       <span className="absolute -top-8 -right-8 w-24 h-24 rounded-full bg-white/15 blur-md" />
-      <span className="absolute inset-0 bg-grain opacity-40" />
       <div className="relative w-9 h-9 rounded-lg bg-white/25 flex items-center justify-center">
         {icon}
       </div>

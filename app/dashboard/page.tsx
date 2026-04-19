@@ -17,7 +17,6 @@ import {
   UsersIcon,
   Flame,
   Trophy,
-  Play,
   Sparkle,
   Target,
   Close,
@@ -73,14 +72,13 @@ export default function DashboardPage() {
       <section className="px-6 mt-4">
         <div className="relative rounded-[26px] p-5 overflow-hidden"
           style={{
-            background: "linear-gradient(145deg, #5a95ee 0%, #3d7de8 55%, #2c5fc7 100%)",
+            background: "linear-gradient(145deg, #5fc4dc 0%, #2596be 55%, #1a7795 100%)",
             boxShadow:
               "0 26px 52px -24px rgba(61,125,232,0.65), inset 0 1px 0 rgba(255,255,255,0.35)",
           }}
         >
           <span className="absolute -top-10 -right-10 w-44 h-44 rounded-full bg-white/15 blur-xl" />
           <span className="absolute -bottom-12 -left-10 w-48 h-48 rounded-full bg-accent-orchid/30 blur-xl" />
-          <span className="absolute inset-0 bg-grain opacity-60 pointer-events-none" />
 
           <div className="relative flex items-start justify-between gap-3 text-white">
             <div className="flex-1">
@@ -112,32 +110,13 @@ export default function DashboardPage() {
 
             <div className="relative -mt-2 -mr-1 shrink-0">
               <RaiAvatar mood="excited" size="large" showLimbs animate />
-              <div className="absolute -top-2 -left-20 bg-white text-ink-navy text-[11px] font-extrabold px-3 py-1.5 rounded-[14px] rounded-br-[4px] shadow-card whitespace-nowrap">
-                I&apos;m ready!
-              </div>
             </div>
-          </div>
-
-          {/* mini continue chip */}
-          <div className="relative mt-5 flex items-center gap-2">
-            <div className="flex items-center gap-2 bg-white/15 backdrop-blur-sm rounded-pill pl-1.5 pr-3 py-1.5 border border-white/15">
-              <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center text-brand-blue">
-                <Play size={11} />
-              </div>
-              <span className="text-white text-[11px] font-extrabold">
-                Continue · MAS 308
-              </span>
-            </div>
-            <div className="flex-1 h-1.5 rounded-full bg-white/15 overflow-hidden">
-              <div className="h-full w-[74%] bg-white rounded-full" />
-            </div>
-            <span className="text-[11px] font-extrabold text-white">74%</span>
           </div>
         </div>
       </section>
 
       {/* Pill tabs */}
-      <div className="px-6 mt-5 flex items-center justify-between">
+      <div className="px-6 mt-7 flex items-center justify-between">
         <PillTabs<Tab>
           tabs={[
             { key: "lesson", label: "Lessons" },
@@ -156,7 +135,7 @@ export default function DashboardPage() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}
-            className="px-6 mt-5"
+            className="px-6 mt-4"
           >
             <div className="flex items-center justify-between">
               <h3 className="text-h2 text-ink-navy">My Courses</h3>
@@ -178,7 +157,7 @@ export default function DashboardPage() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}
-            className="px-6 mt-5 flex flex-col gap-3"
+            className="px-6 mt-4 flex flex-col gap-3"
           >
             {recentQuizzes.map((q) => (
               <div
@@ -221,7 +200,7 @@ export default function DashboardPage() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}
-            className="px-6 mt-5 flex flex-col gap-2.5"
+            className="px-6 mt-4 flex flex-col gap-2.5"
           >
             {activity.map((a) => (
               <div
@@ -250,14 +229,13 @@ export default function DashboardPage() {
       </AnimatePresence>
 
       {/* Streak strip */}
-      <div className="px-6 mt-6 mb-4">
+      <div className="px-6 mt-8 mb-4">
         <div className="relative overflow-hidden flex items-center gap-3 p-4 rounded-[22px]"
           style={{
             background: "linear-gradient(145deg, #ffe4a8 0%, #ffd166 100%)",
             boxShadow: "0 16px 28px -18px rgba(217,164,42,0.65), inset 0 1px 0 rgba(255,255,255,0.6)",
           }}
         >
-          <span className="absolute inset-0 bg-grain opacity-50" />
           <div className="relative w-11 h-11 rounded-xl bg-ink-navy text-accent-butter flex items-center justify-center shadow-soft">
             <Flame />
           </div>
@@ -314,8 +292,11 @@ export default function DashboardPage() {
                     className="flex gap-3 p-3.5 bg-white rounded-[18px] border border-ink-line"
                   >
                     <div
-                      className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
-                      style={{ background: n.accent, color: n.iconColor }}
+                      className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 text-white"
+                      style={{
+                        background: `linear-gradient(145deg, ${n.iconColor}, ${n.iconColor}cc)`,
+                        boxShadow: `0 10px 18px -10px ${n.iconColor}cc, inset 0 1px 0 rgba(255,255,255,0.3)`,
+                      }}
                     >
                       <IconBy name={n.icon} size={20} />
                     </div>
@@ -333,14 +314,14 @@ export default function DashboardPage() {
                   </div>
                 ))}
               </div>
-              <div className="mt-5 flex items-center gap-3 p-4 rounded-[18px] bg-brand-blueSoft">
-                <div className="w-10 h-10 rounded-xl bg-brand-blue text-white flex items-center justify-center">
+              <div className="mt-5 flex items-center gap-3 p-4 rounded-[18px] bg-brand-blue text-white shadow-soft">
+                <div className="w-10 h-10 rounded-xl bg-white text-brand-blue flex items-center justify-center">
                   <Trophy />
                 </div>
-                <p className="flex-1 text-[12px] text-ink-navy font-bold leading-snug">
+                <p className="flex-1 text-[12px] font-bold leading-snug">
                   You&apos;re #3 in your room this week — keep climbing!
                 </p>
-                <Sparkle className="text-brand-blue" />
+                <Sparkle />
               </div>
             </motion.div>
           </>

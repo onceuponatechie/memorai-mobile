@@ -72,7 +72,6 @@ export default function CoursePage() {
         >
           <span className="absolute -top-14 -right-12 w-56 h-56 rounded-full bg-white/20 blur-xl" />
           <span className="absolute -bottom-16 -left-12 w-48 h-48 rounded-full bg-black/10 blur-xl" />
-          <span className="absolute inset-0 bg-grain opacity-50 pointer-events-none" />
 
           <div className="relative flex items-start justify-between gap-3">
             <div className="flex-1">
@@ -189,8 +188,8 @@ export default function CoursePage() {
               title="Chat with Rai"
               subtitle="Ask anything"
               icon={<ChatIcon />}
-              fill="#3d7de8"
-              fillDeep="#2c5fc7"
+              fill="#2596be"
+              fillDeep="#1a7795"
             />
           </Link>
         </div>
@@ -214,7 +213,7 @@ export default function CoursePage() {
                 key={r.name}
                 className="flex items-center gap-3 p-3 bg-white rounded-[18px] border border-ink-line"
               >
-                <div className="w-11 h-11 rounded-xl bg-brand-blueSoft text-brand-blue flex items-center justify-center">
+                <div className="w-11 h-11 rounded-xl bg-brand-blue text-white flex items-center justify-center shadow-soft">
                   <FileText size={20} />
                 </div>
                 <div className="flex-1 min-w-0">
@@ -324,7 +323,6 @@ function ToolCard({
       }}
     >
       <span className="absolute -top-8 -right-8 w-28 h-28 rounded-full bg-white/15 blur-lg" />
-      <span className="absolute inset-0 bg-grain opacity-40 pointer-events-none" />
       <div
         className="relative w-11 h-11 rounded-[14px] flex items-center justify-center"
         style={{ background: "rgba(255,255,255,0.25)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.4)" }}
@@ -445,12 +443,11 @@ function FlashcardsExample() {
       <div
         className="relative mt-4 h-56 rounded-[24px] text-white p-5 flex flex-col justify-between overflow-hidden"
         style={{
-          background: "linear-gradient(145deg, #5a95ee, #3d7de8 60%, #2c5fc7)",
+          background: "linear-gradient(145deg, #5fc4dc, #2596be 60%, #1a7795)",
           boxShadow: "0 30px 60px -26px rgba(61,125,232,0.75), inset 0 1px 0 rgba(255,255,255,0.3)",
         }}
       >
         <span className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-white/15 blur-xl" />
-        <span className="absolute inset-0 bg-grain opacity-50" />
         <span className="relative text-[11px] font-extrabold uppercase tracking-[0.14em] opacity-70">
           Term
         </span>
@@ -461,14 +458,14 @@ function FlashcardsExample() {
           Tap to flip · Gross Rating Points
         </p>
       </div>
-      <div className="mt-4 flex items-center justify-around">
-        <button className="h-12 w-24 rounded-[16px] bg-accent-coral/15 text-accent-coral font-extrabold text-small">
+      <div className="mt-4 flex items-center justify-around gap-2">
+        <button className="h-12 flex-1 rounded-[16px] bg-accent-coral text-white font-extrabold text-small shadow-soft">
           Hard
         </button>
-        <button className="h-12 w-24 rounded-[16px] bg-accent-butter/25 text-[#b47d00] font-extrabold text-small">
+        <button className="h-12 flex-1 rounded-[16px] bg-accent-butter text-ink-navy font-extrabold text-small shadow-soft">
           Good
         </button>
-        <button className="h-12 w-24 rounded-[16px] bg-accent-mint/20 text-[#2b8a4a] font-extrabold text-small">
+        <button className="h-12 flex-1 rounded-[16px] bg-accent-mint text-ink-navy font-extrabold text-small shadow-soft">
           Easy
         </button>
       </div>

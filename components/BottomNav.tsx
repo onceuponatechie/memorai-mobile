@@ -42,8 +42,11 @@ export default function BottomNav({ active }: { active?: string }) {
                   </span>
                 </div>
               ) : (
-                <div className="py-2.5 text-white/70">
-                  <Icon size={22} />
+                <div className="flex flex-col items-center gap-0.5 py-1.5 text-white/70">
+                  <Icon size={20} />
+                  <span className="text-[9px] font-extrabold tracking-wider uppercase">
+                    {label}
+                  </span>
                 </div>
               )}
             </Link>
