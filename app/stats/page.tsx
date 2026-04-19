@@ -9,8 +9,6 @@ import {
   Flame,
   Trophy,
   Sparkle,
-  Check,
-  Target,
   Lightning,
 } from "@/components/Icons";
 import { leaderboard, achievements } from "@/lib/data";
@@ -18,9 +16,9 @@ import { leaderboard, achievements } from "@/lib/data";
 const days = [
   { d: "M", done: true },
   { d: "T", done: true },
-  { d: "W", done: true },
+  { d: "W", done: false },
   { d: "T", done: true },
-  { d: "F", done: false, today: true },
+  { d: "F", done: true },
   { d: "S", done: false },
   { d: "S", done: false },
 ];
@@ -57,55 +55,43 @@ export default function StatsPage() {
     >
       <div className="px-6 pb-6">
         {/* Streak */}
-        <section
-          className="relative overflow-hidden p-5 rounded-[26px] text-white"
-          style={{
-            background:
-              "linear-gradient(145deg, #7bc1ff 0%, #44A5FF 55%, #1f7acf 100%)",
-            boxShadow:
-              "0 30px 60px -28px rgba(61,125,232,0.7), inset 0 1px 0 rgba(255,255,255,0.35)",
-          }}
-        >
-          <span className="absolute -top-14 -right-12 w-56 h-56 rounded-full bg-white/15 blur-xl" />
-
-          <div className="relative flex items-center gap-3">
-            <div
-              className="w-12 h-12 rounded-xl bg-white text-brand-blue flex items-center justify-center"
-              style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.6)" }}
-            >
-              <Flame />
+        <section className="p-5 rounded-[26px] bg-white border border-ink-line shadow-card">
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 rounded-full bg-accent-coral text-white flex items-center justify-center shrink-0">
+              <Flame size={22} />
             </div>
-            <div>
-              <p className="text-caption font-bold text-white/85 tracking-wide">
+            <div className="flex-1">
+              <p className="text-[13px] font-semibold text-ink-slate">
                 Study streak
               </p>
-              <p className="text-h1">4 of 7 days</p>
+              <p className="text-h1 text-ink-navy -mt-0.5">4 of 7 days</p>
             </div>
+            <p className="text-[12px] font-semibold text-ink-slate shrink-0">
+              Longest: 11 days
+            </p>
           </div>
-          <div className="relative mt-4 flex items-center justify-between">
+          <div className="mt-4 flex items-center justify-between">
             {days.map((d, i) => (
               <div key={i} className="flex flex-col items-center gap-1.5">
                 <div
-                  className={`w-9 h-9 rounded-full flex items-center justify-center ${
+                  className={`w-10 h-10 rounded-full flex items-center justify-center ${
                     d.done
-                      ? "bg-white text-brand-blue"
-                      : d.today
-                      ? "bg-white/25 text-white ring-2 ring-white"
-                      : "bg-white/10 text-white/60"
+                      ? "bg-accent-coral text-white"
+                      : "bg-ink-line text-ink-muted"
                   }`}
                 >
                   {d.done ? (
-                    <Check size={14} />
+                    <Flame size={18} />
                   ) : (
-                    <span className="text-[11px] font-extrabold">{d.d}</span>
+                    <span className="w-1 h-1 rounded-full bg-ink-muted" />
                   )}
                 </div>
+                <span className="text-[11px] font-semibold text-ink-slate">
+                  {d.d}
+                </span>
               </div>
             ))}
           </div>
-          <p className="relative text-[11px] font-bold text-white/80 mt-3">
-            Your longest streak: 11 days
-          </p>
         </section>
 
         {/* Rai's assessment */}

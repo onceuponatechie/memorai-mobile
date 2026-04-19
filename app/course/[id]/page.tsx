@@ -269,8 +269,15 @@ export default function CoursePage() {
               transition={{ type: "spring", damping: 28, stiffness: 280 }}
               className="absolute left-0 right-0 bottom-0 bg-white rounded-t-[32px] p-5 z-50 max-h-[88%] overflow-auto hide-scroll shadow-pop"
             >
-              <div className="flex items-center justify-between mb-3">
-                <div className="w-10 h-1 bg-ink-line rounded-full" />
+              <div className="w-10 h-1 bg-ink-line rounded-full mx-auto" />
+              <div className="flex items-center justify-between mt-3 mb-4">
+                <h2 className="text-[22px] font-extrabold text-ink-navy tracking-tight">
+                  {open === "summary"
+                    ? "Chapter Summary"
+                    : open === "quiz"
+                    ? "Quick Quiz"
+                    : "Flashcards"}
+                </h2>
                 <button
                   onClick={() => setOpen(null)}
                   className="w-9 h-9 rounded-full bg-ink-line flex items-center justify-center text-ink-navy"
@@ -336,46 +343,44 @@ function ToolCard({
 function SummaryExample() {
   return (
     <div>
-      <div className="flex items-center gap-3">
-        <RaiAvatar mood="happy" size="medium" />
-        <div>
-          <p className="text-h2 text-ink-navy">Chapter 4 Summary</p>
-          <p className="text-caption text-ink-slate">Media Planning Frameworks</p>
-        </div>
+      <div className="flex items-center gap-2">
+        <RaiAvatar mood="happy" size="small" />
+        <p className="text-[13px] font-semibold text-brand-blue">
+          Rai summarized this for you
+        </p>
       </div>
-      <div className="mt-4 space-y-3">
+      <h2 className="mt-3 text-[22px] font-extrabold text-ink-navy leading-[1.2] tracking-tight">
+        Advertising Media Planning: Key Takeaways
+      </h2>
+      <div className="mt-4 p-4 rounded-[18px] bg-brand-blueSoft/60 border border-brand-blueSoft">
+        <p className="text-[14px] text-ink-navy leading-[1.55] font-medium">
+          Media planning is the systematic process of selecting the right
+          combination of channels to deliver an advertising message. The four
+          core decisions are{" "}
+          <span className="bg-accent-butter/70 px-1 rounded font-semibold">
+            reach, frequency, continuity, and cost
+          </span>
+          .
+        </p>
+      </div>
+      <ol className="mt-5 space-y-3.5">
         {[
-          {
-            t: "Reach vs. Frequency",
-            b: "Reach = % of target audience exposed at least once. Frequency = average times each person is exposed. Balance both based on campaign goal.",
-            c: "#8b7cf6",
-          },
-          {
-            t: "Media Mix",
-            b: "Combine channels (TV, digital, OOH) to reinforce message. No single channel wins — diminishing returns after saturation.",
-            c: "#ff6f61",
-          },
-          {
-            t: "CPM & CPP",
-            b: "CPM = cost per 1,000 impressions. CPP = cost per rating point. Use CPP for TV, CPM for digital and print.",
-            c: "#ffb066",
-          },
-        ].map((s) => (
-          <div
-            key={s.t}
-            className="relative overflow-hidden p-4 rounded-[18px] border border-ink-line bg-white"
-          >
-            <span
-              className="absolute left-0 top-0 bottom-0 w-1.5 rounded-r-full"
-              style={{ background: s.c }}
-            />
-            <p className="text-small font-extrabold text-ink-navy">{s.t}</p>
-            <p className="text-[12px] text-ink-slate mt-1 leading-[1.5] font-medium">
-              {s.b}
+          "Reach measures the unique audience size exposed to a campaign.",
+          "Frequency tracks how many times the average person sees an ad.",
+          "GRPs (Gross Rating Points) = Reach × Frequency.",
+          "Continuity is the pattern of ad scheduling across the campaign window.",
+          "Cost is measured in CPM for digital and CPP for broadcast buys.",
+        ].map((text, i) => (
+          <li key={i} className="flex gap-3">
+            <span className="shrink-0 mt-0.5 w-6 h-6 rounded-full bg-brand-blue text-white flex items-center justify-center text-[11px] font-extrabold">
+              {i + 1}
+            </span>
+            <p className="flex-1 text-[14px] text-ink-navy leading-[1.5] font-medium">
+              {text}
             </p>
-          </div>
+          </li>
         ))}
-      </div>
+      </ol>
     </div>
   );
 }
@@ -383,12 +388,11 @@ function SummaryExample() {
 function QuizExample() {
   return (
     <div>
-      <div className="flex items-center gap-3">
-        <RaiAvatar mood="thinking" size="medium" />
-        <div>
-          <p className="text-h2 text-ink-navy">Quick Quiz</p>
-          <p className="text-caption text-ink-slate">Question 1 of 10</p>
-        </div>
+      <div className="flex items-center gap-2">
+        <RaiAvatar mood="thinking" size="small" />
+        <p className="text-[13px] font-semibold text-brand-blue">
+          Rai set this up for you · Question 1 of 10
+        </p>
       </div>
       <div className="mt-4 p-4 rounded-[18px] bg-ink-navy text-white">
         <p className="text-body font-extrabold leading-snug">
@@ -428,12 +432,11 @@ function QuizExample() {
 function FlashcardsExample() {
   return (
     <div>
-      <div className="flex items-center gap-3">
-        <RaiAvatar mood="excited" size="medium" />
-        <div>
-          <p className="text-h2 text-ink-navy">Flashcards</p>
-          <p className="text-caption text-ink-slate">Card 3 of 18</p>
-        </div>
+      <div className="flex items-center gap-2">
+        <RaiAvatar mood="excited" size="small" />
+        <p className="text-[13px] font-semibold text-brand-blue">
+          Rai made these for you · Card 3 of 18
+        </p>
       </div>
       <div
         className="relative mt-4 h-56 rounded-[24px] text-white p-5 flex flex-col justify-between overflow-hidden"

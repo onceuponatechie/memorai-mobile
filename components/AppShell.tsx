@@ -9,7 +9,7 @@ export default function AppShell({
   children,
   header,
   bottomNav,
-  background = "#ffffff",
+  background = "#f5f3ff",
   statusTone = "dark",
   padScroll = true,
   footer,

@@ -24,7 +24,7 @@ export default function CourseCard({ course }: { course: Course }) {
       className="group relative block aspect-square rounded-[22px] p-3.5 overflow-hidden transition-transform active:scale-[0.98] flex flex-col text-white"
       style={{
         background: course.accent,
-        boxShadow: `0 16px 28px -16px ${course.accent}88`,
+        boxShadow: `0 22px 34px -14px ${course.accent}aa, 0 6px 12px -6px ${course.accent}66`,
       }}
     >
       <div className="relative flex items-start justify-between">

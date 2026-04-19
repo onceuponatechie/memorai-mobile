@@ -131,7 +131,7 @@ export default function DashboardPage() {
           style={{
             background: "#44A5FF",
             boxShadow:
-              "0 26px 52px -24px rgba(68,165,255,0.65), inset 0 1px 0 rgba(255,255,255,0.2)",
+              "0 30px 50px -18px rgba(31,122,207,0.55), 0 10px 24px -10px rgba(31,122,207,0.35), inset 0 1px 0 rgba(255,255,255,0.25)",
           }}
         >
           <span className="absolute -top-10 -right-10 w-44 h-44 rounded-full bg-white/10 blur-xl" />
@@ -219,7 +219,7 @@ export default function DashboardPage() {
             {recentQuizzes.map((q) => (
               <div
                 key={q.id}
-                className="flex items-center gap-3 p-3.5 bg-white border border-ink-line rounded-[20px] shadow-soft"
+                className="flex items-center gap-3 p-3.5 bg-white border border-ink-line rounded-[20px] shadow-card"
               >
                 <div
                   className="w-11 h-11 rounded-full flex items-center justify-center text-white"
@@ -265,7 +265,7 @@ export default function DashboardPage() {
                   {group.items.map((item) => (
                     <div
                       key={item.title}
-                      className="flex items-center gap-3 p-3 bg-white border border-ink-line rounded-[18px] shadow-soft"
+                      className="flex items-center gap-3 p-3 bg-white border border-ink-line rounded-[18px] shadow-card"
                     >
                       <div
                         className="w-11 h-11 rounded-full flex items-center justify-center text-white shrink-0"
@@ -309,7 +309,7 @@ export default function DashboardPage() {
         <div className="relative overflow-hidden flex items-center gap-3 p-4 rounded-[22px]"
           style={{
             background: "linear-gradient(145deg, #ffe4a8 0%, #ffd166 100%)",
-            boxShadow: "0 16px 28px -18px rgba(217,164,42,0.65), inset 0 1px 0 rgba(255,255,255,0.6)",
+            boxShadow: "0 22px 36px -16px rgba(217,164,42,0.75), 0 6px 14px -6px rgba(217,164,42,0.4), inset 0 1px 0 rgba(255,255,255,0.6)",
           }}
         >
           <div className="relative w-11 h-11 rounded-xl bg-ink-navy text-accent-butter flex items-center justify-center shadow-soft">
