@@ -4,7 +4,7 @@ import Link from "next/link";
 import AppShell from "@/components/AppShell";
 import RaiAvatar from "@/components/RaiAvatar";
 import IconBy from "@/components/IconBy";
-import { FileText, Cards, Brain, ChevronRight } from "@/components/Icons";
+import { FileText, Cards, Brain, ChevronRight, SearchIcon } from "@/components/Icons";
 import { courses, courseResources } from "@/lib/data";
 
 export default function LibraryPage() {
@@ -16,14 +16,22 @@ export default function LibraryPage() {
     <AppShell
       bottomNav="library"
       header={
-        <div className="px-6 pt-2 pb-1">
+        <div className="px-6 pt-2 pb-3">
           <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-ink-slate">
             Your workspace
           </p>
           <h1 className="text-display text-ink-navy">Library</h1>
           <p className="text-small text-ink-slate font-semibold">
-            Everything Rai has helped you make.
+            All resources in one place.
           </p>
+          <div className="mt-3 flex items-center gap-2 bg-ink-line/60 rounded-[16px] px-3.5 h-11">
+            <SearchIcon size={18} />
+            <input
+              type="search"
+              placeholder="Search files & notes"
+              className="flex-1 bg-transparent outline-none text-[14px] font-semibold text-ink-navy placeholder:text-ink-slate"
+            />
+          </div>
         </div>
       }
     >
@@ -96,7 +104,7 @@ export default function LibraryPage() {
         <div
           className="relative overflow-hidden mt-6 p-4 rounded-[22px] text-white"
           style={{
-            background: "linear-gradient(145deg, #5fc4dc 0%, #2596be 60%, #1a7795 100%)",
+            background: "linear-gradient(145deg, #8fd4fc 0%, #53baf7 60%, #2793d5 100%)",
             boxShadow:
               "0 26px 50px -24px rgba(61,125,232,0.65), inset 0 1px 0 rgba(255,255,255,0.35)",
           }}

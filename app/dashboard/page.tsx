@@ -17,6 +17,7 @@ import {
   UsersIcon,
   Flame,
   Trophy,
+  Play,
   Sparkle,
   Target,
   Close,
@@ -72,7 +73,7 @@ export default function DashboardPage() {
       <section className="px-6 mt-4">
         <div className="relative rounded-[26px] p-5 overflow-hidden"
           style={{
-            background: "linear-gradient(145deg, #5fc4dc 0%, #2596be 55%, #1a7795 100%)",
+            background: "linear-gradient(145deg, #8fd4fc 0%, #53baf7 55%, #2793d5 100%)",
             boxShadow:
               "0 26px 52px -24px rgba(61,125,232,0.65), inset 0 1px 0 rgba(255,255,255,0.35)",
           }}
@@ -112,6 +113,18 @@ export default function DashboardPage() {
               <RaiAvatar mood="excited" size="large" showLimbs animate />
             </div>
           </div>
+
+          <Link
+            href="/course/mas-308"
+            className="relative mt-5 flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-pill pl-1.5 pr-3.5 py-1.5 border border-white/20 w-fit"
+          >
+            <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center text-brand-blue">
+              <Play size={11} />
+            </div>
+            <span className="text-white text-[11px] font-extrabold">
+              Continue · MAS 308
+            </span>
+          </Link>
         </div>
       </section>
 

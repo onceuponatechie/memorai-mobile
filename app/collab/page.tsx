@@ -194,7 +194,7 @@ export default function CollabPage() {
               className="relative w-14 h-14 rounded-2xl flex items-center justify-center"
               style={{
                 background:
-                  "linear-gradient(145deg, #5fc4dc, #2596be 60%, #1a7795)",
+                  "linear-gradient(145deg, #8fd4fc, #53baf7 60%, #2793d5)",
                 boxShadow:
                   "0 14px 24px -14px rgba(61,125,232,0.7), inset 0 1px 0 rgba(255,255,255,0.35)",
               }}
@@ -220,7 +220,7 @@ export default function CollabPage() {
                   name={p.name}
                   size="lg"
                   ring
-                  ringColor={p.speaking ? "#2596be" : "#ffffff"}
+                  ringColor={p.speaking ? "#53baf7" : "#ffffff"}
                   ringWidth={p.speaking ? 3 : 2}
                 />
                 {p.speaking && (

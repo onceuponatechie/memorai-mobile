@@ -72,8 +72,8 @@ export const courses: Course[] = [
     code: "MAS 310",
     title: "Media Law & Ethics",
     participants: ["Essy", "Rai"],
-    accent: "#62c4ff",
-    accentDeep: "#2fa3e4",
+    accent: "#3dd598",
+    accentDeep: "#17a878",
     accentText: "#0f1a3d",
     icon: "scales",
     progress: 21,
@@ -85,7 +85,7 @@ export const recentQuizzes = [
   { id: "q1", course: "MAS 312", title: "Media Planning Basics", score: 8, total: 10, accent: "#ff6f61" },
   { id: "q2", course: "MAS 308", title: "Studio Audio Techniques", score: 7, total: 10, accent: "#8b7cf6" },
   { id: "q3", course: "MAS 314", title: "Crisis Communication", score: 9, total: 10, accent: "#ffd166" },
-  { id: "q4", course: "MAS 310", title: "Libel & Defamation", score: 5, total: 10, accent: "#62c4ff" },
+  { id: "q4", course: "MAS 310", title: "Libel & Defamation", score: 5, total: 10, accent: "#3dd598" },
 ];
 
 export type ActivityIcon = "upload" | "target" | "wave" | "sparkle" | "flame" | "folder";
@@ -94,7 +94,7 @@ export const activity: { id: string; icon: ActivityIcon; text: string; time: str
   { id: "a1", icon: "upload", text: "Amaka uploaded 'Chapter 4 Notes' to MAS 312", time: "2h ago", color: "#8b7cf6" },
   { id: "a2", icon: "target", text: "You scored 8/10 on Media Planning quiz", time: "5h ago", color: "#ff6f61" },
   { id: "a3", icon: "wave", text: "Tolu invited you to a study session", time: "Yesterday", color: "#62c4ff" },
-  { id: "a4", icon: "sparkle", text: "Rai generated flashcards for MAS 308", time: "Yesterday", color: "#2596be" },
+  { id: "a4", icon: "sparkle", text: "Rai generated flashcards for MAS 308", time: "Yesterday", color: "#53baf7" },
   { id: "a5", icon: "flame", text: "You hit a 4-day study streak", time: "2 days ago", color: "#ff6f61" },
   { id: "a6", icon: "folder", text: "New resource: 'PR Case Studies' in MAS 314", time: "3 days ago", color: "#ffb066" },
 ];

@@ -5,7 +5,7 @@ export default function NotificationCard({
   title,
   body,
   time,
-  accent = "#e0f2f9",
+  accent = "#e4f4fe",
 }: {
   icon: React.ReactNode;
   title: string;
