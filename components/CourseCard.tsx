@@ -51,7 +51,7 @@ export default function CourseCard({ course }: { course: Course }) {
         >
           <IconBy name={course.icon} size={20} />
         </div>
-        <span className="text-[10px] font-extrabold uppercase tracking-[0.08em] opacity-75">
+        <span className="text-[11px] font-extrabold opacity-80">
           {course.code}
         </span>
       </div>

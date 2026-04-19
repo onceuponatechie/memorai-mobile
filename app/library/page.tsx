@@ -17,19 +17,19 @@ export default function LibraryPage() {
       bottomNav="library"
       header={
         <div className="px-6 pt-2 pb-3">
-          <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-ink-slate">
+          <p className="text-[12px] font-semibold text-ink-slate">
             Your workspace
           </p>
           <h1 className="text-display text-ink-navy">Library</h1>
-          <p className="text-small text-ink-slate font-semibold">
+          <p className="text-small text-ink-slate font-medium">
             All resources in one place.
           </p>
           <div className="mt-3 flex items-center gap-2 bg-ink-line/60 rounded-[16px] px-3.5 h-11">
-            <SearchIcon size={18} />
+            <SearchIcon size={16} />
             <input
               type="search"
               placeholder="Search files & notes"
-              className="flex-1 bg-transparent outline-none text-[14px] font-semibold text-ink-navy placeholder:text-ink-slate"
+              className="flex-1 bg-transparent outline-none text-[12px] font-medium text-ink-navy placeholder:text-ink-slate"
             />
           </div>
         </div>
@@ -63,7 +63,7 @@ export default function LibraryPage() {
                   <IconBy name={c.icon} size={22} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-[10px] font-extrabold uppercase tracking-wider text-ink-slate">
+                  <p className="text-[11px] font-extrabold text-ink-slate">
                     {c.code}
                   </p>
                   <p className="text-small font-extrabold text-ink-navy truncate">
@@ -102,14 +102,13 @@ export default function LibraryPage() {
         </div>
 
         <div
-          className="relative overflow-hidden mt-6 p-4 rounded-[22px] text-white"
+          className="relative overflow-hidden mt-6 p-4 rounded-[22px] text-white bg-brand-blue"
           style={{
-            background: "linear-gradient(145deg, #8fd4fc 0%, #53baf7 60%, #2793d5 100%)",
             boxShadow:
-              "0 26px 50px -24px rgba(61,125,232,0.65), inset 0 1px 0 rgba(255,255,255,0.35)",
+              "0 26px 50px -24px rgba(31,138,201,0.55), inset 0 1px 0 rgba(255,255,255,0.25)",
           }}
         >
-          <span className="absolute -top-10 -right-10 w-36 h-36 rounded-full bg-white/15 blur-xl" />
+          <span className="absolute -top-10 -right-10 w-36 h-36 rounded-full bg-white/10 blur-xl" />
           <div className="relative flex items-center gap-3">
             <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center">
               <RaiAvatar size="medium" mood="happy" />

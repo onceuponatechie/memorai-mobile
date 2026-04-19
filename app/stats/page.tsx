@@ -9,8 +9,6 @@ import {
   Flame,
   Trophy,
   Sparkle,
-  Check,
-  Target,
   Lightning,
 } from "@/components/Icons";
 import { leaderboard, achievements } from "@/lib/data";
@@ -32,10 +30,10 @@ export default function StatsPage() {
       header={
         <div className="px-6 pt-2 pb-2 flex items-start justify-between">
           <div>
-            <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-ink-slate">
-              Apr 14 – 20 · This Week
+            <h1 className="text-display text-ink-navy">Your Stats</h1>
+            <p className="text-[12px] font-semibold text-ink-slate mt-1">
+              Apr 14 – 20 · This week
             </p>
-            <h1 className="text-display text-ink-navy mt-0.5">Your Stats</h1>
           </div>
           <div
             className="w-16 h-16 rounded-[20px] flex flex-col items-center justify-center"
@@ -45,8 +43,8 @@ export default function StatsPage() {
                 "0 16px 28px -16px rgba(217,164,42,0.7), inset 0 1px 0 rgba(255,255,255,0.6)",
             }}
           >
-            <span className="text-[9px] font-extrabold text-[#7d5600] tracking-wider">
-              GRADE
+            <span className="text-[10px] font-extrabold text-[#7d5600]">
+              Grade
             </span>
             <span className="text-[26px] font-extrabold text-ink-navy leading-none">
               C+
@@ -58,15 +56,13 @@ export default function StatsPage() {
       <div className="px-6 pb-6">
         {/* Streak */}
         <section
-          className="relative overflow-hidden p-5 rounded-[26px] text-white"
+          className="relative overflow-hidden p-5 rounded-[26px] text-white bg-brand-blue"
           style={{
-            background:
-              "linear-gradient(145deg, #8fd4fc 0%, #53baf7 55%, #2793d5 100%)",
             boxShadow:
-              "0 30px 60px -28px rgba(61,125,232,0.7), inset 0 1px 0 rgba(255,255,255,0.35)",
+              "0 30px 60px -28px rgba(31,138,201,0.55), inset 0 1px 0 rgba(255,255,255,0.25)",
           }}
         >
-          <span className="absolute -top-14 -right-12 w-56 h-56 rounded-full bg-white/15 blur-xl" />
+          <span className="absolute -top-14 -right-12 w-56 h-56 rounded-full bg-white/10 blur-xl" />
 
           <div className="relative flex items-center gap-3">
             <div
@@ -76,34 +72,37 @@ export default function StatsPage() {
               <Flame />
             </div>
             <div>
-              <p className="text-caption font-extrabold text-white/75 tracking-wider">
-                STUDY STREAK
+              <p className="text-[12px] font-semibold text-white/80">
+                Study streak
               </p>
               <p className="text-h1">4 of 7 days</p>
             </div>
           </div>
-          <div className="relative mt-4 flex items-center justify-between">
+          <div className="relative mt-5 grid grid-cols-7 gap-2">
             {days.map((d, i) => (
               <div key={i} className="flex flex-col items-center gap-1.5">
                 <div
-                  className={`w-9 h-9 rounded-full flex items-center justify-center ${
+                  className={`w-10 h-10 rounded-full flex items-center justify-center ${
                     d.done
-                      ? "bg-white text-brand-blue"
+                      ? "bg-white text-[#ff6f61]"
                       : d.today
-                      ? "bg-white/25 text-white ring-2 ring-white"
-                      : "bg-white/10 text-white/60"
+                      ? "bg-white/20 text-white ring-2 ring-white"
+                      : "bg-white/10 text-white/55"
                   }`}
                 >
-                  {d.done ? (
-                    <Check size={14} />
-                  ) : (
-                    <span className="text-[11px] font-extrabold">{d.d}</span>
-                  )}
+                  <Flame size={18} />
                 </div>
+                <span
+                  className={`text-[11px] font-extrabold ${
+                    d.today ? "text-white" : "text-white/70"
+                  }`}
+                >
+                  {d.d}
+                </span>
               </div>
             ))}
           </div>
-          <p className="relative text-[11px] font-bold text-white/80 mt-3">
+          <p className="relative text-[12px] font-semibold text-white/80 mt-4">
             Your longest streak: 11 days
           </p>
         </section>
@@ -115,8 +114,8 @@ export default function StatsPage() {
               <RaiAvatar mood="thinking" size="medium" />
             </div>
             <div className="flex-1">
-              <p className="text-[11px] font-extrabold tracking-[0.14em] uppercase text-ink-slate">
-                Rai&apos;s Weekly Take
+              <p className="text-[12px] font-semibold text-ink-slate">
+                Rai&apos;s weekly take
               </p>
               <p className="text-[14px] text-ink-navy mt-1.5 leading-[1.55] font-semibold">
                 You&apos;re{" "}
@@ -237,8 +236,8 @@ export default function StatsPage() {
               <RaiAvatar mood="excited" size="medium" />
             </div>
             <div className="flex-1">
-              <p className="text-caption font-extrabold text-white/80 tracking-wider">
-                NEXT WEEK
+              <p className="text-[12px] font-semibold text-white/80">
+                Next week
               </p>
               <p className="text-h2 leading-tight">
                 Let&apos;s aim for a 6-day streak
@@ -290,7 +289,7 @@ function MetricCard({
         >
           <Lightning size={12} />
         </span>
-        <p className="text-[10px] font-extrabold uppercase tracking-wider text-ink-slate">
+        <p className="text-[11px] font-semibold text-ink-slate">
           {label}
         </p>
       </div>

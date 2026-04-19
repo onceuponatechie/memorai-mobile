@@ -5,22 +5,16 @@ import { motion } from "framer-motion";
 import PhoneFrame from "@/components/PhoneFrame";
 import StatusBar from "@/components/StatusBar";
 import RaiAvatar from "@/components/RaiAvatar";
-import ActionButton from "@/components/ActionButton";
 import { Sparkle } from "@/components/Icons";
 
 export default function SplashPage() {
   return (
-    <PhoneFrame background="#2793d5">
+    <PhoneFrame background="#44aae9">
       <div
         className="relative h-full w-full text-white flex flex-col"
-        style={{
-          background:
-            "radial-gradient(120% 80% at 20% 0%, #8fd4fc 0%, #53baf7 45%, #2793d5 100%)",
-        }}
+        style={{ background: "#44aae9" }}
       >
-        <div className="absolute -top-20 -left-16 w-64 h-64 rounded-full bg-white/15 blur-2xl" />
-        <div className="absolute top-1/3 -right-12 w-56 h-56 rounded-full bg-accent-orchid/40 blur-2xl" />
-        <div className="absolute bottom-10 left-10 w-44 h-44 rounded-full bg-accent-butter/25 blur-2xl" />
+        <div className="absolute -top-20 -left-16 w-64 h-64 rounded-full bg-white/10 blur-2xl" />
 
         <StatusBar time="9:41" tone="light" />
 
@@ -78,12 +72,13 @@ export default function SplashPage() {
             transition={{ delay: 0.9 }}
             className="w-full flex flex-col items-center gap-3"
           >
-            <Link href="/signup" className="w-full">
-              <ActionButton variant="white" size="lg">
-                Get Started
-              </ActionButton>
+            <Link
+              href="/signup"
+              className="w-full h-14 rounded-full bg-white text-ink-navy flex items-center justify-center text-[16px] font-extrabold shadow-pop active:scale-[0.98] transition-transform"
+            >
+              Get Started
             </Link>
-            <p className="text-[11px] text-white/60 font-extrabold tracking-wider uppercase">
+            <p className="text-[11px] text-white/70 font-semibold tracking-wide">
               Powered by Claude
             </p>
           </motion.div>

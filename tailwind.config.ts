@@ -9,9 +9,9 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          blue: "#53baf7",
-          blueDark: "#2793d5",
-          blueSoft: "#e4f4fe",
+          blue: "#44aae9",
+          blueDark: "#1f8ac9",
+          blueSoft: "#d9eefa",
         },
         ink: {
           navy: "#0f1a3d",
@@ -48,7 +48,7 @@ const config: Config = {
       boxShadow: {
         card: "0 14px 32px -18px rgba(15, 26, 61, 0.2), 0 2px 4px -2px rgba(15, 26, 61, 0.06)",
         soft: "0 6px 18px -10px rgba(15, 26, 61, 0.14)",
-        float: "0 22px 44px -22px rgba(83, 186, 247, 0.6), inset 0 1px 0 rgba(255,255,255,0.2)",
+        float: "0 22px 44px -22px rgba(68, 170, 233, 0.6), inset 0 1px 0 rgba(255,255,255,0.2)",
         pop: "0 30px 60px -24px rgba(15, 26, 61, 0.35), inset 0 1px 0 rgba(255,255,255,0.25)",
         inset: "inset 0 1px 0 rgba(255,255,255,0.4)",
       },

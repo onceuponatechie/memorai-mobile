@@ -48,7 +48,7 @@ export default function CoursePage() {
             <ArrowLeft />
           </Link>
           <div className="text-center leading-tight">
-            <p className="text-[11px] font-extrabold text-ink-slate tracking-[0.14em] uppercase">
+            <p className="text-[12px] font-semibold text-ink-slate">
               Course
             </p>
             <p className="text-h2 text-ink-navy">{course.code}</p>
@@ -74,7 +74,7 @@ export default function CoursePage() {
 
           <div className="relative flex items-start justify-between gap-3">
             <div className="flex-1">
-              <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] opacity-70">
+              <p className="text-[12px] font-semibold opacity-80">
                 {course.code}
               </p>
               <h2 className="text-[24px] font-extrabold leading-[1.1] tracking-tight mt-1">
@@ -131,7 +131,7 @@ export default function CoursePage() {
         <div className="mt-5 p-4 rounded-[22px] bg-white border border-ink-line shadow-soft">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-caption font-extrabold text-ink-slate">PROGRESS</p>
+              <p className="text-[12px] font-semibold text-ink-slate">Progress</p>
               <p className="text-h1 text-ink-navy leading-none mt-1">
                 {course.progress}%
               </p>
@@ -183,8 +183,8 @@ export default function CoursePage() {
               title="Chat with Rai"
               subtitle="Ask anything"
               icon={<ChatIcon />}
-              fill="#53baf7"
-              fillDeep="#2793d5"
+              fill="#44aae9"
+              fillDeep="#1f8ac9"
             />
           </Link>
         </div>
@@ -436,14 +436,13 @@ function FlashcardsExample() {
         </div>
       </div>
       <div
-        className="relative mt-4 h-56 rounded-[24px] text-white p-5 flex flex-col justify-between overflow-hidden"
+        className="relative mt-4 h-56 rounded-[24px] text-white p-5 flex flex-col justify-between overflow-hidden bg-brand-blue"
         style={{
-          background: "linear-gradient(145deg, #8fd4fc, #53baf7 60%, #2793d5)",
-          boxShadow: "0 30px 60px -26px rgba(61,125,232,0.75), inset 0 1px 0 rgba(255,255,255,0.3)",
+          boxShadow: "0 30px 60px -26px rgba(31,138,201,0.55), inset 0 1px 0 rgba(255,255,255,0.25)",
         }}
       >
-        <span className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-white/15 blur-xl" />
-        <span className="relative text-[11px] font-extrabold uppercase tracking-[0.14em] opacity-70">
+        <span className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-white/10 blur-xl" />
+        <span className="relative text-[12px] font-semibold opacity-80">
           Term
         </span>
         <p className="relative text-[28px] font-extrabold leading-tight text-center tracking-tight">

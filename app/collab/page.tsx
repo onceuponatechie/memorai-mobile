@@ -119,8 +119,8 @@ export default function CollabPage() {
             <ArrowLeft />
           </Link>
           <div className="flex-1">
-            <p className="text-[10px] font-extrabold text-accent-purple tracking-[0.14em]">
-              LIVE SESSION
+            <p className="text-[12px] font-semibold text-accent-purple">
+              Live session
             </p>
             <p className="text-h2 text-ink-navy leading-tight">
               Media Planning Jam
@@ -191,12 +191,10 @@ export default function CollabPage() {
         <div className="flex gap-3 overflow-x-auto no-scrollbar pb-1">
           <div className="shrink-0 flex flex-col items-center gap-1.5">
             <div
-              className="relative w-14 h-14 rounded-2xl flex items-center justify-center"
+              className="relative w-14 h-14 rounded-2xl flex items-center justify-center bg-brand-blue"
               style={{
-                background:
-                  "linear-gradient(145deg, #8fd4fc, #53baf7 60%, #2793d5)",
                 boxShadow:
-                  "0 14px 24px -14px rgba(61,125,232,0.7), inset 0 1px 0 rgba(255,255,255,0.35)",
+                  "0 14px 24px -14px rgba(31,138,201,0.55), inset 0 1px 0 rgba(255,255,255,0.25)",
               }}
             >
               <RaiAvatar size="medium" mood="happy" />
@@ -205,8 +203,8 @@ export default function CollabPage() {
               </span>
             </div>
             <span className="text-[11px] font-extrabold text-ink-navy">Rai</span>
-            <span className="text-[9px] font-extrabold text-accent-mint tracking-wider">
-              HOST
+            <span className="text-[10px] font-semibold text-accent-mint">
+              Host
             </span>
           </div>
 
@@ -220,7 +218,7 @@ export default function CollabPage() {
                   name={p.name}
                   size="lg"
                   ring
-                  ringColor={p.speaking ? "#53baf7" : "#ffffff"}
+                  ringColor={p.speaking ? "#44aae9" : "#ffffff"}
                   ringWidth={p.speaking ? 3 : 2}
                 />
                 {p.speaking && (
@@ -233,11 +231,11 @@ export default function CollabPage() {
                 {p.name}
               </span>
               <span
-                className={`text-[9px] font-extrabold tracking-wider ${
+                className={`text-[10px] font-semibold ${
                   p.speaking ? "text-accent-mint" : "text-ink-muted"
                 }`}
               >
-                {p.speaking ? "SPEAKING" : "MUTED"}
+                {p.speaking ? "Speaking" : "Muted"}
               </span>
             </div>
           ))}

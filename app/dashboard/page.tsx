@@ -71,19 +71,17 @@ export default function DashboardPage() {
     >
       {/* Featured card */}
       <section className="px-6 mt-4">
-        <div className="relative rounded-[26px] p-5 overflow-hidden"
+        <div className="relative rounded-[26px] p-5 overflow-hidden bg-brand-blue"
           style={{
-            background: "linear-gradient(145deg, #8fd4fc 0%, #53baf7 55%, #2793d5 100%)",
             boxShadow:
-              "0 26px 52px -24px rgba(61,125,232,0.65), inset 0 1px 0 rgba(255,255,255,0.35)",
+              "0 26px 52px -24px rgba(31,138,201,0.55), inset 0 1px 0 rgba(255,255,255,0.25)",
           }}
         >
-          <span className="absolute -top-10 -right-10 w-44 h-44 rounded-full bg-white/15 blur-xl" />
-          <span className="absolute -bottom-12 -left-10 w-48 h-48 rounded-full bg-accent-orchid/30 blur-xl" />
+          <span className="absolute -top-10 -right-10 w-44 h-44 rounded-full bg-white/10 blur-xl" />
 
           <div className="relative flex items-start justify-between gap-3 text-white">
             <div className="flex-1">
-              <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-white/70">
+              <p className="text-[12px] font-semibold text-white/80">
                 Today · Apr 18
               </p>
               <h2 className="text-[26px] leading-[1.05] font-extrabold tracking-tight mt-1">
@@ -187,7 +185,7 @@ export default function DashboardPage() {
                   <Target size={20} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-[11px] font-extrabold uppercase tracking-wider text-ink-slate">
+                  <p className="text-[11px] font-extrabold text-ink-slate">
                     {q.course}
                   </p>
                   <p className="text-small font-extrabold text-ink-navy truncate">

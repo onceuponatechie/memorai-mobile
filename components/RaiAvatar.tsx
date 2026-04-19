@@ -116,9 +116,9 @@ export default function RaiAvatar({
       <svg viewBox="0 0 120 120" width={px} height={px}>
         <defs>
           <radialGradient id="raiBody" cx="50%" cy="40%" r="65%">
-            <stop offset="0%" stopColor="#a8dffc" />
-            <stop offset="60%" stopColor="#7bc9f7" />
-            <stop offset="100%" stopColor="#53baf7" />
+            <stop offset="0%" stopColor="#8fc9ef" />
+            <stop offset="60%" stopColor="#60b5ec" />
+            <stop offset="100%" stopColor="#44aae9" />
           </radialGradient>
           <radialGradient id="raiHighlight" cx="30%" cy="25%" r="30%">
             <stop offset="0%" stopColor="#ffffff" stopOpacity="0.9" />
@@ -132,32 +132,32 @@ export default function RaiAvatar({
             {/* Left arm */}
             <path
               d="M18 62 Q8 66 10 78"
-              stroke="#53baf7"
+              stroke="#44aae9"
               strokeWidth="8"
               strokeLinecap="round"
               fill="none"
             />
-            <circle cx="10" cy="80" r="5" fill="#53baf7" />
+            <circle cx="10" cy="80" r="5" fill="#44aae9" />
             {/* Right arm */}
             <path
               d="M102 62 Q112 66 110 78"
-              stroke="#53baf7"
+              stroke="#44aae9"
               strokeWidth="8"
               strokeLinecap="round"
               fill="none"
             />
-            <circle cx="110" cy="80" r="5" fill="#53baf7" />
+            <circle cx="110" cy="80" r="5" fill="#44aae9" />
             {/* Legs */}
             <path
               d="M48 100 Q46 112 42 116"
-              stroke="#53baf7"
+              stroke="#44aae9"
               strokeWidth="8"
               strokeLinecap="round"
               fill="none"
             />
             <path
               d="M72 100 Q74 112 78 116"
-              stroke="#53baf7"
+              stroke="#44aae9"
               strokeWidth="8"
               strokeLinecap="round"
               fill="none"
