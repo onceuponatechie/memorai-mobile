@@ -61,13 +61,12 @@ export default function StatsPage() {
           className="relative overflow-hidden p-5 rounded-[26px] text-white"
           style={{
             background:
-              "linear-gradient(145deg, #5a95ee 0%, #3d7de8 55%, #2c5fc7 100%)",
+              "linear-gradient(145deg, #5fc4dc 0%, #2596be 55%, #1a7795 100%)",
             boxShadow:
               "0 30px 60px -28px rgba(61,125,232,0.7), inset 0 1px 0 rgba(255,255,255,0.35)",
           }}
         >
           <span className="absolute -top-14 -right-12 w-56 h-56 rounded-full bg-white/15 blur-xl" />
-          <span className="absolute inset-0 bg-grain opacity-50" />
 
           <div className="relative flex items-center gap-3">
             <div
@@ -112,7 +111,7 @@ export default function StatsPage() {
         {/* Rai's assessment */}
         <section className="mt-5 p-5 rounded-[22px] bg-white border border-ink-line shadow-soft">
           <div className="flex items-start gap-3">
-            <div className="w-12 h-12 rounded-2xl bg-brand-blueSoft flex items-center justify-center">
+            <div className="w-12 h-12 rounded-2xl bg-brand-blue flex items-center justify-center shadow-soft">
               <RaiAvatar mood="thinking" size="medium" />
             </div>
             <div className="flex-1">
@@ -180,7 +179,7 @@ export default function StatsPage() {
         {/* Leaderboard */}
         <section className="mt-6 p-5 rounded-[22px] bg-white border border-ink-line shadow-soft">
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-xl bg-accent-butter/40 text-[#b47d00] flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-accent-butter text-ink-navy flex items-center justify-center shadow-soft">
               <Trophy />
             </div>
             <h3 className="text-h2 text-ink-navy">Room Leaderboard</h3>
@@ -190,7 +189,7 @@ export default function StatsPage() {
               <div
                 key={r.name}
                 className={`flex items-center gap-3 p-2.5 rounded-[14px] ${
-                  r.you ? "bg-brand-blueSoft border border-brand-blue/15" : ""
+                  r.you ? "bg-brand-blue text-white" : ""
                 }`}
               >
                 <span
@@ -200,22 +199,22 @@ export default function StatsPage() {
                       : r.rank === 2
                       ? "bg-ink-line text-ink-navy"
                       : r.rank === 3
-                      ? "bg-accent-coral/25 text-accent-coral"
+                      ? "bg-accent-coral text-white"
                       : "bg-ink-line text-ink-slate"
                   }`}
                 >
                   {r.rank}
                 </span>
                 <AvatarCircle name={r.name} size="sm" />
-                <p className="flex-1 text-small font-extrabold text-ink-navy">
+                <p className={`flex-1 text-small font-extrabold ${r.you ? "text-white" : "text-ink-navy"}`}>
                   {r.name}{" "}
                   {r.you && (
-                    <span className="text-[10px] font-extrabold text-brand-blue ml-1">
+                    <span className="text-[10px] font-extrabold text-white/85 ml-1">
                       (you)
                     </span>
                   )}
                 </p>
-                <span className="text-small font-extrabold text-ink-navy">
+                <span className={`text-small font-extrabold ${r.you ? "text-white" : "text-ink-navy"}`}>
                   {r.xp.toLocaleString()} XP
                 </span>
               </div>
@@ -233,7 +232,6 @@ export default function StatsPage() {
           }}
         >
           <span className="absolute -top-14 -right-12 w-56 h-56 rounded-full bg-white/15 blur-xl" />
-          <span className="absolute inset-0 bg-grain opacity-40" />
           <div className="relative flex items-start gap-3">
             <div className="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center">
               <RaiAvatar mood="excited" size="medium" />

@@ -141,10 +141,10 @@ export default function CollabPage() {
       footer={
         <div className="shrink-0 px-4 pt-2 pb-3 bg-white border-t border-ink-line">
           <div className="flex items-center gap-2 mb-2">
-            <button className="h-9 px-3 rounded-pill bg-brand-blueSoft text-brand-blue text-[11px] font-extrabold flex items-center gap-1.5">
+            <button className="h-9 px-3.5 rounded-pill bg-brand-blue text-white text-[11px] font-extrabold flex items-center gap-1.5 shadow-soft">
               <Sparkle size={12} /> Ask Rai
             </button>
-            <button className="h-9 px-3 rounded-pill bg-accent-coral/15 text-accent-coral text-[11px] font-extrabold flex items-center gap-1.5">
+            <button className="h-9 px-3.5 rounded-pill bg-accent-coral text-white text-[11px] font-extrabold flex items-center gap-1.5 shadow-soft">
               <Hand size={12} /> Raise hand
             </button>
           </div>
@@ -194,7 +194,7 @@ export default function CollabPage() {
               className="relative w-14 h-14 rounded-2xl flex items-center justify-center"
               style={{
                 background:
-                  "linear-gradient(145deg, #5a95ee, #3d7de8 60%, #2c5fc7)",
+                  "linear-gradient(145deg, #5fc4dc, #2596be 60%, #1a7795)",
                 boxShadow:
                   "0 14px 24px -14px rgba(61,125,232,0.7), inset 0 1px 0 rgba(255,255,255,0.35)",
               }}
@@ -220,7 +220,7 @@ export default function CollabPage() {
                   name={p.name}
                   size="lg"
                   ring
-                  ringColor={p.speaking ? "#3d7de8" : "#ffffff"}
+                  ringColor={p.speaking ? "#2596be" : "#ffffff"}
                   ringWidth={p.speaking ? 3 : 2}
                 />
                 {p.speaking && (
@@ -287,7 +287,7 @@ function GroupBubble({ msg }: { msg: Msg }) {
             <span className="text-brand-blue">Rai</span>{" "}
             <span className="text-ink-muted">· {msg.time}</span>
           </p>
-          <div className="bg-brand-blueSoft border border-brand-blue/20 text-ink-navy px-4 py-3 rounded-[20px] rounded-bl-[6px] text-[14px] font-semibold leading-snug">
+          <div className="bg-brand-blueSoft text-ink-navy px-4 py-3 rounded-[20px] rounded-bl-[6px] text-[14px] font-semibold leading-snug shadow-soft">
             {msg.text}
           </div>
         </div>
