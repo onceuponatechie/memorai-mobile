@@ -20,7 +20,7 @@ import {
 import { currentUser, friends } from "@/lib/data";
 
 const rooms = [
-  { name: "Mass Comm 300L", members: 4, accent: "#3d7de8" },
+  { name: "Mass Comm 300L", members: 4, accent: "#44A5FF" },
   { name: "Ad Agency Club", members: 9, accent: "#8b7cf6" },
 ];
 
@@ -33,7 +33,7 @@ export default function MenuPage() {
       label: "Profile",
       desc: "Edit photo, handle, bio",
       icon: <Gear />,
-      color: "#3d7de8",
+      color: "#44A5FF",
     },
     {
       key: "rooms",
@@ -83,7 +83,7 @@ export default function MenuPage() {
           animate={{ opacity: 1, y: 0 }}
           className="relative overflow-hidden p-5 rounded-[26px]"
           style={{
-            background: "linear-gradient(145deg, #7ba9f0 0%, #3d7de8 60%, #2a5fbe 100%)",
+            background: "linear-gradient(145deg, #7bc1ff 0%, #44A5FF 60%, #1f7acf 100%)",
             boxShadow:
               "0 30px 60px -28px rgba(61,125,232,0.65), inset 0 1px 0 rgba(255,255,255,0.35)",
           }}
@@ -231,7 +231,7 @@ export default function MenuPage() {
         <MenuRow
           label="Rate Us"
           desc="Tell us what you think"
-          color="#3d7de8"
+          color="#44A5FF"
           icon={<Star />}
         />
 
