@@ -10,10 +10,10 @@ import { Sparkle } from "@/components/Icons";
 
 export default function SplashPage() {
   return (
-    <PhoneFrame background="#3d7de8">
+    <PhoneFrame background="#44A5FF">
       <div
         className="relative h-full w-full text-white flex flex-col"
-        style={{ background: "#3d7de8" }}
+        style={{ background: "#44A5FF" }}
       >
         <StatusBar time="9:41" tone="light" />
 

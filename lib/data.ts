@@ -46,11 +46,11 @@ export const courses: Course[] = [
   {
     id: "mas-314",
     code: "MAS 314",
-    title: "Public Relations",
+    title: "Public\nRelations",
     participants: ["Essy"],
-    accent: "#ffd166",
-    accentDeep: "#d9a42a",
-    accentText: "#0f1a3d",
+    accent: "#ffb066",
+    accentDeep: "#d98a3c",
+    accentText: "#ffffff",
     icon: "newspaper",
     progress: 38,
     lessons: 18,
@@ -72,9 +72,9 @@ export const courses: Course[] = [
     code: "MAS 310",
     title: "Media Law & Ethics",
     participants: ["Essy", "Rai"],
-    accent: "#3dd598",
-    accentDeep: "#17a878",
-    accentText: "#0f1a3d",
+    accent: "#E687DB",
+    accentDeep: "#c862bc",
+    accentText: "#ffffff",
     icon: "scales",
     progress: 21,
     lessons: 16,
@@ -84,8 +84,8 @@ export const courses: Course[] = [
 export const recentQuizzes = [
   { id: "q1", course: "MAS 312", title: "Media Planning Basics", score: 8, total: 10, accent: "#ff6f61" },
   { id: "q2", course: "MAS 308", title: "Studio Audio Techniques", score: 7, total: 10, accent: "#8b7cf6" },
-  { id: "q3", course: "MAS 314", title: "Crisis Communication", score: 9, total: 10, accent: "#ffd166" },
-  { id: "q4", course: "MAS 310", title: "Libel & Defamation", score: 5, total: 10, accent: "#3dd598" },
+  { id: "q3", course: "MAS 314", title: "Crisis Communication", score: 9, total: 10, accent: "#ffb066" },
+  { id: "q4", course: "MAS 310", title: "Libel & Defamation", score: 5, total: 10, accent: "#E687DB" },
 ];
 
 export type ActivityIcon = "upload" | "target" | "wave" | "sparkle" | "flame" | "folder";
@@ -94,7 +94,7 @@ export const activity: { id: string; icon: ActivityIcon; text: string; time: str
   { id: "a1", icon: "upload", text: "Amaka uploaded 'Chapter 4 Notes' to MAS 312", time: "2h ago", color: "#8b7cf6" },
   { id: "a2", icon: "target", text: "You scored 8/10 on Media Planning quiz", time: "5h ago", color: "#ff6f61" },
   { id: "a3", icon: "wave", text: "Tolu invited you to a study session", time: "Yesterday", color: "#62c4ff" },
-  { id: "a4", icon: "sparkle", text: "Rai generated flashcards for MAS 308", time: "Yesterday", color: "#3d7de8" },
+  { id: "a4", icon: "sparkle", text: "Rai generated flashcards for MAS 308", time: "Yesterday", color: "#44A5FF" },
   { id: "a5", icon: "flame", text: "You hit a 4-day study streak", time: "2 days ago", color: "#ff6f61" },
   { id: "a6", icon: "folder", text: "New resource: 'PR Case Studies' in MAS 314", time: "3 days ago", color: "#ffb066" },
 ];

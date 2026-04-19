@@ -183,8 +183,8 @@ export default function CoursePage() {
               title="Chat with Rai"
               subtitle="Ask anything"
               icon={<ChatIcon />}
-              fill="#3d7de8"
-              fillDeep="#2a5fbe"
+              fill="#44A5FF"
+              fillDeep="#1f7acf"
             />
           </Link>
         </div>
@@ -438,7 +438,7 @@ function FlashcardsExample() {
       <div
         className="relative mt-4 h-56 rounded-[24px] text-white p-5 flex flex-col justify-between overflow-hidden"
         style={{
-          background: "linear-gradient(145deg, #7ba9f0, #3d7de8 60%, #2a5fbe)",
+          background: "linear-gradient(145deg, #7bc1ff, #44A5FF 60%, #1f7acf)",
           boxShadow: "0 30px 60px -26px rgba(61,125,232,0.75), inset 0 1px 0 rgba(255,255,255,0.3)",
         }}
       >

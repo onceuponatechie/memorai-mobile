@@ -104,7 +104,7 @@ export default function LibraryPage() {
         <div
           className="relative overflow-hidden mt-6 p-4 rounded-[22px] text-white"
           style={{
-            background: "linear-gradient(145deg, #7ba9f0 0%, #3d7de8 60%, #2a5fbe 100%)",
+            background: "linear-gradient(145deg, #7bc1ff 0%, #44A5FF 60%, #1f7acf 100%)",
             boxShadow:
               "0 26px 50px -24px rgba(61,125,232,0.65), inset 0 1px 0 rgba(255,255,255,0.35)",
           }}

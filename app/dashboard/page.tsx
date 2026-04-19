@@ -17,20 +17,76 @@ import {
   UsersIcon,
   Flame,
   Trophy,
-  Play,
   Sparkle,
   Target,
   Close,
+  Check,
 } from "@/components/Icons";
 import {
   currentUser,
   courses,
   recentQuizzes,
-  activity,
   notifications,
 } from "@/lib/data";
 
-type Tab = "lesson" | "quiz" | "activity";
+type Tab = "lesson" | "quiz" | "plan";
+
+const studyPlan: {
+  day: string;
+  items: {
+    time: string;
+    duration: string;
+    title: string;
+    subtitle: string;
+    color: string;
+    icon: string;
+    done?: boolean;
+  }[];
+}[] = [
+  {
+    day: "Today · Fri",
+    items: [
+      {
+        time: "4:30 PM",
+        duration: "25 min",
+        title: "Broadcast Production · Chapter 5",
+        subtitle: "Studio audio techniques recap",
+        color: "#8b7cf6",
+        icon: "mic",
+        done: true,
+      },
+      {
+        time: "6:00 PM",
+        duration: "15 min",
+        title: "Media Law · Flashcards",
+        subtitle: "Libel & defamation — 12 cards",
+        color: "#E687DB",
+        icon: "scales",
+      },
+    ],
+  },
+  {
+    day: "Tomorrow · Sat",
+    items: [
+      {
+        time: "10:00 AM",
+        duration: "30 min",
+        title: "Advertising Media Planning",
+        subtitle: "Reach & frequency quiz with Rai",
+        color: "#ff6f61",
+        icon: "megaphone",
+      },
+      {
+        time: "5:00 PM",
+        duration: "20 min",
+        title: "Public Relations · Summary",
+        subtitle: "Crisis comm playbook",
+        color: "#ffd166",
+        icon: "newspaper",
+      },
+    ],
+  },
+];
 
 export default function DashboardPage() {
   const [tab, setTab] = useState<Tab>("lesson");
@@ -73,16 +129,19 @@ export default function DashboardPage() {
       <section className="px-6 mt-4">
         <div className="relative rounded-[26px] p-5 overflow-hidden"
           style={{
-            background: "#3d7de8",
+            background: "#44A5FF",
             boxShadow:
-              "0 26px 52px -24px rgba(61,125,232,0.65), inset 0 1px 0 rgba(255,255,255,0.2)",
+              "0 26px 52px -24px rgba(68,165,255,0.65), inset 0 1px 0 rgba(255,255,255,0.2)",
           }}
         >
           <span className="absolute -top-10 -right-10 w-44 h-44 rounded-full bg-white/10 blur-xl" />
 
           <div className="relative flex items-start justify-between gap-3 text-white">
             <div className="flex-1">
-              <h2 className="text-[26px] leading-[1.05] font-extrabold tracking-tight">
+              <p className="text-[12px] font-semibold text-white/80 tracking-normal">
+                Today · Apr 18
+              </p>
+              <h2 className="text-[26px] leading-[1.05] font-extrabold tracking-tight mt-0.5">
                 Learning today?
               </h2>
               <p className="text-[12px] text-white/80 mt-1.5 max-w-[200px] leading-snug">
@@ -109,31 +168,20 @@ export default function DashboardPage() {
               <RaiAvatar mood="excited" size="large" showLimbs animate />
             </div>
           </div>
-
-          <Link
-            href="/course/mas-308"
-            className="relative mt-5 flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-pill pl-1.5 pr-3.5 py-1.5 border border-white/20 w-fit"
-          >
-            <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center text-brand-blue">
-              <Play size={11} />
-            </div>
-            <span className="text-white text-[11px] font-extrabold">
-              Continue · MAS 308
-            </span>
-          </Link>
         </div>
       </section>
 
       {/* Pill tabs */}
-      <div className="px-6 mt-7 flex items-center justify-between">
+      <div className="px-6 mt-7">
         <PillTabs<Tab>
           tabs={[
             { key: "lesson", label: "Lessons" },
             { key: "quiz", label: "Quizzes" },
-            { key: "activity", label: "Activity" },
+            { key: "plan", label: "Study Plan" },
           ]}
           active={tab}
           onChange={setTab}
+          fullWidth
         />
       </div>
 
@@ -174,19 +222,16 @@ export default function DashboardPage() {
                 className="flex items-center gap-3 p-3.5 bg-white border border-ink-line rounded-[20px] shadow-soft"
               >
                 <div
-                  className="w-11 h-11 rounded-[14px] flex items-center justify-center text-white"
-                  style={{
-                    background: `linear-gradient(145deg, ${q.accent}, ${q.accent}dd)`,
-                    boxShadow: `0 10px 18px -10px ${q.accent}cc`,
-                  }}
+                  className="w-11 h-11 rounded-full flex items-center justify-center text-white"
+                  style={{ background: q.accent }}
                 >
                   <Target size={20} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-[11px] font-semibold tracking-wider text-ink-slate">
+                  <p className="text-[11px] font-semibold tracking-wide text-ink-slate">
                     {q.course}
                   </p>
-                  <p className="text-small font-extrabold text-ink-navy truncate">
+                  <p className="text-small font-semibold text-ink-navy truncate">
                     {q.title}
                   </p>
                 </div>
@@ -203,34 +248,56 @@ export default function DashboardPage() {
           </motion.div>
         )}
 
-        {tab === "activity" && (
+        {tab === "plan" && (
           <motion.div
-            key="activity"
+            key="plan"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}
-            className="px-6 mt-4 flex flex-col gap-2.5"
+            className="px-6 mt-4 flex flex-col gap-5"
           >
-            {activity.map((a) => (
-              <div
-                key={a.id}
-                className="flex items-center gap-3 p-3 bg-white border border-ink-line rounded-[18px]"
-              >
-                <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center text-white shrink-0"
-                  style={{
-                    background: `linear-gradient(145deg, ${a.color}, ${a.color}cc)`,
-                    boxShadow: `0 8px 14px -8px ${a.color}bb`,
-                  }}
-                >
-                  <IconBy name={a.icon} size={18} />
-                </div>
-                <p className="flex-1 text-[13px] text-ink-navy font-semibold leading-snug">
-                  {a.text}
+            {studyPlan.map((group) => (
+              <div key={group.day}>
+                <p className="text-[12px] font-bold text-ink-slate tracking-normal mb-2">
+                  {group.day}
                 </p>
-                <span className="text-[11px] text-ink-muted font-bold shrink-0">
-                  {a.time}
-                </span>
+                <div className="flex flex-col gap-2.5">
+                  {group.items.map((item) => (
+                    <div
+                      key={item.title}
+                      className="flex items-center gap-3 p-3 bg-white border border-ink-line rounded-[18px] shadow-soft"
+                    >
+                      <div
+                        className="w-11 h-11 rounded-full flex items-center justify-center text-white shrink-0"
+                        style={{ background: item.color }}
+                      >
+                        {item.done ? <Check size={18} /> : <IconBy name={item.icon} size={18} />}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-[11px] font-semibold text-ink-slate flex items-center gap-1.5">
+                          <span>{item.time}</span>
+                          <span className="w-1 h-1 rounded-full bg-ink-muted" />
+                          <span>{item.duration}</span>
+                        </p>
+                        <p className="text-small font-semibold text-ink-navy truncate">
+                          {item.title}
+                        </p>
+                        <p className="text-[11px] text-ink-slate font-medium truncate">
+                          {item.subtitle}
+                        </p>
+                      </div>
+                      {item.done ? (
+                        <span className="text-[11px] font-bold text-accent-mint shrink-0">
+                          Done
+                        </span>
+                      ) : (
+                        <button className="text-[11px] font-extrabold text-brand-blue shrink-0">
+                          Start →
+                        </button>
+                      )}
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </motion.div>

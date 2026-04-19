@@ -7,15 +7,19 @@ export default function PillTabs<T extends string>({
   active,
   onChange,
   className = "",
+  fullWidth = false,
 }: {
   tabs: { key: T; label: string }[];
   active: T;
   onChange: (k: T) => void;
   className?: string;
+  fullWidth?: boolean;
 }) {
   return (
     <div
-      className={`inline-flex items-center gap-1.5 bg-ink-line/70 p-1 rounded-pill ${className}`}
+      className={`${
+        fullWidth ? "flex w-full" : "inline-flex"
+      } items-center gap-1.5 bg-ink-line/70 p-1 rounded-pill ${className}`}
     >
       {tabs.map((t) => {
         const isActive = t.key === active;
@@ -23,7 +27,9 @@ export default function PillTabs<T extends string>({
           <button
             key={t.key}
             onClick={() => onChange(t.key)}
-            className={`h-9 px-4 rounded-pill text-[13px] font-bold transition-all ${
+            className={`${
+              fullWidth ? "flex-1" : ""
+            } h-9 px-4 rounded-pill text-[13px] font-bold transition-all ${
               isActive
                 ? "bg-brand-blue text-white shadow-float"
                 : "text-ink-slate"
